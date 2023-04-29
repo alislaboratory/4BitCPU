@@ -345,8 +345,8 @@
     <comp lib="8" loc="(125,411)" name="Text">
       <a name="text" val="Operands Input (2 4-bit)"/>
     </comp>
-    <comp lib="8" loc="(225,781)" name="Text">
-      <a name="text" val="Todo: ALU instruction decoder, Subtractor, shifter"/>
+    <comp lib="8" loc="(226,781)" name="Text">
+      <a name="text" val="Todo: 2-bit ALU instruction decoder, Subtractor, shifter"/>
     </comp>
     <comp lib="8" loc="(542,208)" name="Text">
       <a name="text" val="Multiplexer"/>
@@ -649,5 +649,83 @@
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="north"/>
     </comp>
+    <comp lib="0" loc="(630,200)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(630,230)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(630,260)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(630,290)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp loc="(520,240)" name="OneTwoDEMUX"/>
+  </circuit>
+  <circuit name="OneTwoDEMUX">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="OneTwoDEMUX"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <appear>
+      <rect fill="none" height="30" stroke="#000000" width="82" x="50" y="50"/>
+      <circ-anchor facing="east" x="190" y="60"/>
+      <circ-port dir="in" pin="190,400" x="50" y="60"/>
+      <circ-port dir="in" pin="310,520" x="50" y="70"/>
+      <circ-port dir="out" pin="540,380" x="130" y="60"/>
+      <circ-port dir="out" pin="540,410" x="130" y="70"/>
+    </appear>
+    <comp lib="0" loc="(190,400)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="I"/>
+    </comp>
+    <comp lib="0" loc="(310,520)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+      <a name="label" val="S"/>
+    </comp>
+    <comp lib="0" loc="(540,380)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="D0"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(540,410)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="D1"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="1" loc="(310,470)" name="NOT Gate">
+      <a name="facing" val="north"/>
+    </comp>
+    <comp lib="1" loc="(440,370)" name="AND Gate"/>
+    <comp lib="1" loc="(440,440)" name="AND Gate"/>
+    <wire from="(190,400)" to="(190,420)"/>
+    <wire from="(190,400)" to="(280,400)"/>
+    <wire from="(190,420)" to="(390,420)"/>
+    <wire from="(280,350)" to="(280,400)"/>
+    <wire from="(280,350)" to="(390,350)"/>
+    <wire from="(310,390)" to="(310,470)"/>
+    <wire from="(310,390)" to="(390,390)"/>
+    <wire from="(310,500)" to="(310,520)"/>
+    <wire from="(310,520)" to="(370,520)"/>
+    <wire from="(370,460)" to="(370,520)"/>
+    <wire from="(370,460)" to="(390,460)"/>
+    <wire from="(440,370)" to="(530,370)"/>
+    <wire from="(440,440)" to="(530,440)"/>
+    <wire from="(530,370)" to="(530,380)"/>
+    <wire from="(530,380)" to="(540,380)"/>
+    <wire from="(530,410)" to="(530,440)"/>
+    <wire from="(530,410)" to="(540,410)"/>
   </circuit>
 </project>
