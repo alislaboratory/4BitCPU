@@ -633,12 +633,12 @@
     <wire from="(530,260)" to="(530,270)"/>
     <wire from="(530,290)" to="(530,300)"/>
   </circuit>
-  <circuit name="OneFourDemultiplexer">
+  <circuit name="OneFourDEMUX">
     <a name="appearance" val="logisim_evolution"/>
-    <a name="circuit" val="OneFourDemultiplexer"/>
+    <a name="circuit" val="OneFourDEMUX"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp lib="0" loc="(190,230)" name="Pin">
+    <comp lib="0" loc="(160,230)" name="Pin">
       <a name="appearance" val="NewPins"/>
     </comp>
     <comp lib="0" loc="(400,430)" name="Pin">
@@ -669,7 +669,7 @@
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
     </comp>
-    <comp loc="(520,240)" name="OneTwoDEMUX"/>
+    <comp loc="(560,190)" name="OneTwoDEMUX"/>
   </circuit>
   <circuit name="OneTwoDEMUX">
     <a name="appearance" val="logisim_evolution"/>
