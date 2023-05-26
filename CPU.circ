@@ -341,14 +341,14 @@
     <comp lib="8" loc="(125,411)" name="Text">
       <a name="text" val="Operands Input (2 4-bit)"/>
     </comp>
-    <comp lib="8" loc="(491,879)" name="Text">
-      <a name="text" val="Description: The AU will handle addition, subtraction, negation.   Opcodes: 00 (idle), (01) add A and B, (10) subtract A and B, (11), negate A."/>
+    <comp lib="8" loc="(534,88)" name="Text">
+      <a name="text" val="Opcodes Input"/>
     </comp>
-    <comp lib="8" loc="(510,167)" name="Text">
+    <comp lib="8" loc="(543,192)" name="Text">
       <a name="text" val="Demultiplexer"/>
     </comp>
-    <comp lib="8" loc="(552,86)" name="Text">
-      <a name="text" val="Opcodes Input"/>
+    <comp lib="8" loc="(576,886)" name="Text">
+      <a name="text" val="Description: The AU will handle addition, subtraction, negation.   Opcodes: 00 (idle), (01) add A and B, (10) subtract A and B, (11), negate A."/>
     </comp>
     <comp loc="(920,220)" name="FourBitAdder"/>
     <comp loc="(920,430)" name="FourBitSubtractor"/>
