@@ -557,25 +557,37 @@
     <a name="circuit" val="ALU"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
-    <comp lib="0" loc="(1380,560)" name="Pin">
+    <comp lib="0" loc="(1610,410)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(1610,430)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(1610,450)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(1610,470)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
+    <comp lib="0" loc="(2190,650)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="Y3"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="0" loc="(1380,590)" name="Pin">
+    <comp lib="0" loc="(2190,680)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="Y2"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="0" loc="(1380,620)" name="Pin">
+    <comp lib="0" loc="(2190,710)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="Y1"/>
       <a name="output" val="true"/>
     </comp>
-    <comp lib="0" loc="(1380,650)" name="Pin">
+    <comp lib="0" loc="(2190,740)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
       <a name="label" val="Y0"/>
@@ -628,7 +640,7 @@
       <a name="facing" val="south"/>
       <a name="label" val="OP0"/>
     </comp>
-    <comp lib="8" loc="(1509,616)" name="Text">
+    <comp lib="8" loc="(2319,706)" name="Text">
       <a name="text" val="Results"/>
     </comp>
     <comp lib="8" loc="(389,469)" name="Text">
@@ -639,6 +651,7 @@
     </comp>
     <comp loc="(1010,470)" name="FourBitAdder"/>
     <comp loc="(1110,830)" name="FourBitSubtractor"/>
+    <comp loc="(1850,410)" name="ThirtyTwoToFourMux"/>
     <comp loc="(740,630)" name="FourBitBuffer"/>
     <comp loc="(770,470)" name="FourBitBuffer"/>
     <comp loc="(860,830)" name="FourBitBuffer"/>
@@ -646,6 +659,10 @@
     <comp loc="(910,370)" name="ThreeToEightDemux">
       <a name="facing" val="south"/>
     </comp>
+    <wire from="(1610,410)" to="(1630,410)"/>
+    <wire from="(1610,430)" to="(1630,430)"/>
+    <wire from="(1610,450)" to="(1630,450)"/>
+    <wire from="(1610,470)" to="(1630,470)"/>
     <wire from="(420,500)" to="(450,500)"/>
     <wire from="(420,530)" to="(460,530)"/>
     <wire from="(420,560)" to="(470,560)"/>
@@ -979,6 +996,7 @@
     </comp>
     <comp lib="0" loc="(150,1050)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="G"/>
     </comp>
     <comp lib="0" loc="(150,1080)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -991,6 +1009,7 @@
     </comp>
     <comp lib="0" loc="(150,1190)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="H"/>
     </comp>
     <comp lib="0" loc="(150,1220)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -1003,6 +1022,7 @@
     </comp>
     <comp lib="0" loc="(150,210)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="A3"/>
     </comp>
     <comp lib="0" loc="(150,240)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -1012,9 +1032,11 @@
     </comp>
     <comp lib="0" loc="(150,300)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="A0"/>
     </comp>
     <comp lib="0" loc="(150,350)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="B"/>
     </comp>
     <comp lib="0" loc="(150,380)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -1027,6 +1049,7 @@
     </comp>
     <comp lib="0" loc="(150,490)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="C"/>
     </comp>
     <comp lib="0" loc="(150,520)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -1039,6 +1062,7 @@
     </comp>
     <comp lib="0" loc="(150,630)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="D"/>
     </comp>
     <comp lib="0" loc="(150,660)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -1051,6 +1075,7 @@
     </comp>
     <comp lib="0" loc="(150,770)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="E"/>
     </comp>
     <comp lib="0" loc="(150,800)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -1063,6 +1088,7 @@
     </comp>
     <comp lib="0" loc="(150,910)" name="Pin">
       <a name="appearance" val="NewPins"/>
+      <a name="label" val="F"/>
     </comp>
     <comp lib="0" loc="(150,940)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -1073,34 +1099,41 @@
     <comp lib="0" loc="(1630,660)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
+      <a name="label" val="Y3"/>
       <a name="output" val="true"/>
     </comp>
     <comp lib="0" loc="(1630,690)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
+      <a name="label" val="Y2"/>
       <a name="output" val="true"/>
     </comp>
     <comp lib="0" loc="(1630,720)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
+      <a name="label" val="Y1"/>
       <a name="output" val="true"/>
     </comp>
     <comp lib="0" loc="(1630,750)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
+      <a name="label" val="Y0"/>
       <a name="output" val="true"/>
     </comp>
     <comp lib="0" loc="(530,70)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
+      <a name="label" val="S2"/>
     </comp>
     <comp lib="0" loc="(570,70)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
+      <a name="label" val="S1"/>
     </comp>
     <comp lib="0" loc="(610,70)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="south"/>
+      <a name="label" val="S0"/>
     </comp>
     <comp lib="1" loc="(1340,590)" name="OR Gate">
       <a name="inputs" val="8"/>
