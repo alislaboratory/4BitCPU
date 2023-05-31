@@ -1868,4 +1868,42 @@
     <wire from="(380,310)" to="(380,320)"/>
     <wire from="(380,330)" to="(380,380)"/>
   </circuit>
+  <circuit name="SISORegister">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="SISORegister"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(1350,370)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="SOut"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(320,380)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="SIn"/>
+    </comp>
+    <comp lib="0" loc="(320,460)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="CK"/>
+    </comp>
+    <comp loc="(1050,370)" name="DFlipFlop"/>
+    <comp loc="(1280,370)" name="DFlipFlop"/>
+    <comp loc="(580,370)" name="DFlipFlop"/>
+    <comp loc="(820,370)" name="DFlipFlop"/>
+    <wire from="(1050,370)" to="(1060,370)"/>
+    <wire from="(1060,390)" to="(1060,460)"/>
+    <wire from="(1280,370)" to="(1350,370)"/>
+    <wire from="(320,380)" to="(360,380)"/>
+    <wire from="(320,460)" to="(360,460)"/>
+    <wire from="(360,370)" to="(360,380)"/>
+    <wire from="(360,390)" to="(360,460)"/>
+    <wire from="(360,460)" to="(600,460)"/>
+    <wire from="(580,370)" to="(600,370)"/>
+    <wire from="(600,390)" to="(600,460)"/>
+    <wire from="(600,460)" to="(830,460)"/>
+    <wire from="(820,370)" to="(830,370)"/>
+    <wire from="(830,390)" to="(830,460)"/>
+    <wire from="(830,460)" to="(1060,460)"/>
+  </circuit>
 </project>
