@@ -1606,12 +1606,20 @@
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
     <appear>
-      <rect fill="none" height="29" stroke="#000000" width="52" x="218" y="51"/>
+      <rect height="3" stroke="none" width="10" x="161" y="58"/>
+      <text dominant-baseline="alphabetic" fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="175" y="65">D</text>
+      <rect height="3" stroke="none" width="10" x="157" y="78"/>
+      <text dominant-baseline="alphabetic" fill="#404040" font-family="Dialog" font-size="12" text-anchor="start" x="171" y="85">CK</text>
+      <rect height="3" stroke="none" width="10" x="260" y="59"/>
+      <text dominant-baseline="alphabetic" fill="#404040" font-family="Dialog" font-size="12" text-anchor="end" x="255" y="64">Y</text>
+      <rect height="3" stroke="none" width="10" x="260" y="79"/>
+      <text dominant-baseline="alphabetic" fill="#404040" font-family="Dialog" font-size="12" text-anchor="end" x="255" y="84">NotY</text>
+      <rect fill="none" height="50" stroke="#000000" stroke-width="2" width="99" x="158" y="50"/>
       <circ-anchor facing="east" x="270" y="60"/>
-      <circ-port dir="in" pin="330,360" x="220" y="60"/>
-      <circ-port dir="in" pin="330,420" x="220" y="70"/>
+      <circ-port dir="in" pin="330,360" x="160" y="60"/>
+      <circ-port dir="in" pin="330,420" x="160" y="80"/>
       <circ-port dir="out" pin="950,340" x="270" y="60"/>
-      <circ-port dir="out" pin="950,440" x="270" y="70"/>
+      <circ-port dir="out" pin="950,440" x="270" y="80"/>
     </appear>
     <comp lib="0" loc="(330,360)" name="Pin">
       <a name="appearance" val="NewPins"/>
