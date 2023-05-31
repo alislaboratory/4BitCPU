@@ -644,13 +644,13 @@
       <a name="facing" val="south"/>
       <a name="label" val="OP0"/>
     </comp>
-    <comp lib="8" loc="(2319,706)" name="Text">
+    <comp lib="8" loc="(2315,705)" name="Text">
       <a name="text" val="Results"/>
     </comp>
-    <comp lib="8" loc="(389,469)" name="Text">
+    <comp lib="8" loc="(385,465)" name="Text">
       <a name="text" val="Operands"/>
     </comp>
-    <comp lib="8" loc="(857,32)" name="Text">
+    <comp lib="8" loc="(855,30)" name="Text">
       <a name="text" val="Opcodes"/>
     </comp>
     <comp loc="(1070,470)" name="FourBitAdder"/>
@@ -1757,9 +1757,7 @@
     <wire from="(1140,330)" to="(1140,510)"/>
     <wire from="(1140,330)" to="(1160,330)"/>
     <wire from="(1160,330)" to="(1160,340)"/>
-    <wire from="(1180,390)" to="(1180,400)"/>
     <wire from="(1180,390)" to="(1190,390)"/>
-    <wire from="(1180,400)" to="(1190,400)"/>
     <wire from="(1190,390)" to="(1190,400)"/>
     <wire from="(1200,280)" to="(1200,340)"/>
     <wire from="(1210,450)" to="(1210,510)"/>
@@ -1821,5 +1819,53 @@
     <wire from="(940,400)" to="(950,400)"/>
     <wire from="(950,390)" to="(950,400)"/>
     <wire from="(970,260)" to="(970,340)"/>
+  </circuit>
+  <circuit name="PISOShifter">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="PISOShifter"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(180,230)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="P3"/>
+    </comp>
+    <comp lib="0" loc="(180,260)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="P2"/>
+    </comp>
+    <comp lib="0" loc="(180,290)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="P1"/>
+    </comp>
+    <comp lib="0" loc="(180,320)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="P0"/>
+    </comp>
+    <comp lib="0" loc="(180,380)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="C"/>
+    </comp>
+    <comp lib="0" loc="(360,340)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp loc="(600,230)" name="PISORegister"/>
+    <wire from="(180,230)" to="(380,230)"/>
+    <wire from="(180,260)" to="(380,260)"/>
+    <wire from="(180,290)" to="(350,290)"/>
+    <wire from="(180,320)" to="(340,320)"/>
+    <wire from="(180,380)" to="(380,380)"/>
+    <wire from="(340,300)" to="(340,320)"/>
+    <wire from="(340,300)" to="(360,300)"/>
+    <wire from="(350,270)" to="(350,290)"/>
+    <wire from="(350,270)" to="(380,270)"/>
+    <wire from="(360,280)" to="(360,300)"/>
+    <wire from="(360,280)" to="(380,280)"/>
+    <wire from="(360,340)" to="(370,340)"/>
+    <wire from="(370,320)" to="(370,340)"/>
+    <wire from="(370,320)" to="(380,320)"/>
+    <wire from="(380,250)" to="(380,260)"/>
+    <wire from="(380,280)" to="(380,290)"/>
+    <wire from="(380,310)" to="(380,320)"/>
+    <wire from="(380,330)" to="(380,380)"/>
   </circuit>
 </project>
