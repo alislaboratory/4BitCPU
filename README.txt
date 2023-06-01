@@ -1,25 +1,44 @@
 My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 -- INSTRUCTION SET --
-This 4-bit CPU will have a capacity of 8 instructions (3-bit opcodes). There are 2 4-bit operands. Overflow and borrowing are disregarded in operations.
-NOP 000 - idle operation. Result will always be 0000. (done)
-ADD 001 - addition operation. Results will be A+B. (done)
-SUB 010 - subtraction operation. Results will be A-B . (done)
-SHR 011 - shift A right by B. Will take B clock cycles for result (TBD)
-SHL 100 - shift A left by B. Will take B clock cycles for result (TBD)
-MOV 101 - move contents of A in memory to B in memory. (TBD)
-LDA 110 - Load contents of B in memory to register A. (TBD)
-LDB 111 - Load contents of A in memory to register B.
+	This 4-bit CPU will have a capacity of 16 instructions (4-bit opcodes). There are 2 4-bit operands. Overflow and borrowing are disregarded in operations, only in JMPC, JMPB and JMP0 .
+	The ALU will have 3-bit opcodes, so 8 comparator and arithmetic instructions. Instructions passed to the ALU are marked with '(ALU)'. Active operations are marked with an (ACT)
 
-One of the last two operations could be removed and left for other operations. This will depend on their usage when all operations are finished. 
+	NOP 0000 (ALU) - idle operation. Result will always be 0000. (done)
+	ADD 0001 (ALU)(ACT) - addition operation. Results will be A+B. (done)
+	SUB 0010 (ALU)(ACT) - subtraction operation. Results will be A-B . (done)
+	SHR 0011 (ALU)(ACT) - shift A right by B. Will take B clock cycles for result (TBD)
+	SHL 0100 (ALU)(ACT) - shift A left by B. Will take B clock cycles for result (TBD)
+	MOV 0101 - move contents of A in memory to B in memory. (TBD)
+	LDA 0110 - Load contents of B in memory to register A. (TBD)
+	LDB 0111 - Load contents of A in memory to register B.
+	WRX 1000 - Write the contents of result register Y to memory at address in input register A.
+	JMP0 1001 - Jump to instruction at memory address A if data at memory address B is 0000.
+	JMPC 1001 - Jump to instruction at memory adress A if ALU in previous operation resulted in addition overflow (carry).
+
+
+	There can be a capacity for future operations such as multiplication and dividing, but at the moment these are user defined. In the Mk2, there should be more capacity for complex operations, as in this computer there are only 4 bits, so multiplication and division is not necessary and using while loops with ADD and JMP is more efficient for myself.
+
+	Note: an 'active' operation refers to an operation that requires an output. For example, ADD is an active operation, while MOV and the LD operations are active. A list of active operations is defined above. The X accumulator register and the B and C ALU flags will not be overwritten until there is a new active operation. All ALU operations are active.
 
 
 -- MEMORY --
-The A and B registers exist in the CPU for when instructions are executed. Regarding external memory, there are 16 4-bit registers for general purpose access. Registers are constructed of D flip flops (or latches if necessary).
-The RAM module will have a 4-bit register input, a 1-bit mode select, a 4-bit data input, and a 4-bit data output.
+	= INTERNAL MEMORY =
+	The A,B, and X registers exist in the CPU for when instructions are executed. A & B are both input registers, and X is the accumulator, storing the result of the most recent active operation. There is also a B and C flag from the ALU that will be 1 when either borrowing or carrying occurred on the most recent active operation.
 
-When the mode select is low (default read mode), the data stored at the address in given by the register input will be at the 4-bit data output. The data input is disregarded - it has no effect on the output.
-When the mode select is high (write mode), the address at the register input will be overwritten with the data from the data input at the (rising edge or high) clock pulse. The output is (0000 or the new/old output).
+	
+
+	Regarding external memory, there are 16 4-bit registers for general purpose access. 
+
+	Registers are constructed of D flip flops (or latches if necessary).
+	The RAM module will have a 4-bit register input, a 1-bit mode select, a 4-bit data input, and a 4-bit data output.
+
+	When the mode select is low (default read mode), the data stored at the address in given by the register input will be at the 4-bit data output. The data input is disregarded - it has no effect on the output.
+	When the mode select is high (write mode), the address at the register input will be overwritten with the data from the data input at the (rising edge or high) clock pulse. The output is (0000 or the new/old output).
+
+-- TODO --
+- Create B and C flag for subtraction borrowing and addition overflow.
+- Create X register
 
 
 
