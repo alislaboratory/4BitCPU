@@ -17,8 +17,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	LDB 0111 - Load contents of A in memory to register B.
 	WRX 1000 - Write the contents of result register X to memory at address in input register A.
 	JMP0 1001 - Jump to instruction at memory address A if data at memory address B is 0000.
-	JMPC 1001 - Jump to instruction at memory adress A if ALU in previous operation resulted in addition overflow (carry).
-	JMPB 1010
+	JMPC 1001 - Jump to instruction at memory address A if ALU in most recent active operation resulted in addition overflow (carry).
+	JMPB 1010 - Jump to instruction at memory address A if ALU in most recent active operation resulted in subtraction overflow (borrowing).
 
 	UDEF 1011
 	UDEF 1100
