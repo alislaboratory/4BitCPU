@@ -2314,6 +2314,10 @@
       <a name="appearance" val="NewPins"/>
       <a name="label" val="S"/>
     </comp>
+    <comp lib="0" loc="(220,850)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="CK"/>
+    </comp>
     <comp lib="8" loc="(76,379)" name="Text">
       <a name="text" val="Address"/>
     </comp>
@@ -2323,6 +2327,22 @@
     <comp lib="8" loc="(78,807)" name="Text">
       <a name="text" val="Mode Select"/>
     </comp>
+    <comp loc="(1260,350)" name="FourBitRegister"/>
+    <comp loc="(1260,550)" name="FourBitRegister"/>
+    <comp loc="(1260,750)" name="FourBitRegister"/>
+    <comp loc="(1260,950)" name="FourBitRegister"/>
+    <comp loc="(1570,360)" name="FourBitRegister"/>
+    <comp loc="(1570,560)" name="FourBitRegister"/>
+    <comp loc="(1570,760)" name="FourBitRegister"/>
+    <comp loc="(1570,960)" name="FourBitRegister"/>
+    <comp loc="(1880,360)" name="FourBitRegister"/>
+    <comp loc="(1880,560)" name="FourBitRegister"/>
+    <comp loc="(1880,760)" name="FourBitRegister"/>
+    <comp loc="(1880,960)" name="FourBitRegister"/>
+    <comp loc="(950,350)" name="FourBitRegister"/>
+    <comp loc="(950,550)" name="FourBitRegister"/>
+    <comp loc="(950,750)" name="FourBitRegister"/>
+    <comp loc="(950,950)" name="FourBitRegister"/>
   </circuit>
   <circuit name="FourBitRegister">
     <a name="appearance" val="logisim_evolution"/>
