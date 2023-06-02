@@ -57,8 +57,9 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 -- TODO --
 	- Create B subtraction borrowing.
 	- Create X register
-	- Create lookup table architecture (4:16 multiplexer)
 	- Create a bidirectional shift register
+	- Opcode hand-over logic to ALU in CPU.
+	- Implement high write on new active operation.
 
 
 
