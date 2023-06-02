@@ -2,7 +2,10 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 -- INSTRUCTION SET --
 	This 4-bit CPU will have a capacity of 16 instructions (4-bit opcodes). There are 2 4-bit operands. Overflow and borrowing are disregarded in operations, only in JMPC, JMPB and JMP0 .
-	The ALU will have 3-bit opcodes, so 8 comparator and arithmetic instructions. Instructions passed to the ALU are marked with '(ALU)'. Active operations are marked with an (ACT)
+	The ALU will have 3-bit opcodes, so 8 comparator and arithmetic instructions. 
+	Instructions passed to the ALU are marked with '(ALU)'.
+	Active operations are marked with an (ACT).
+	Undefined operations have been marked with (UDEF), they will result in no operation.
 
 	NOP 0000 (ALU) - idle operation. Result will always be 0000. (done)
 	ADD 0001 (ALU)(ACT) - addition operation. Results will be A+B. (done)
@@ -15,6 +18,14 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	WRX 1000 - Write the contents of result register Y to memory at address in input register A.
 	JMP0 1001 - Jump to instruction at memory address A if data at memory address B is 0000.
 	JMPC 1001 - Jump to instruction at memory adress A if ALU in previous operation resulted in addition overflow (carry).
+	
+	UDEF 1010
+	UDEF 1011
+	UDEF 1100
+	UDEF 1101
+	UDEF 1110
+	UDEF 1111
+
 
 
 	There can be a capacity for future operations such as multiplication and dividing, but at the moment these are user defined. In the Mk2, there should be more capacity for complex operations, as in this computer there are only 4 bits, so multiplication and division is not necessary and using while loops with ADD and JMP is more efficient for myself.
