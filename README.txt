@@ -59,6 +59,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	- Create X register
 	- Create a bidirectional shift register
 	- Opcode hand-over logic to ALU in CPU.
+	- CPU instructions.
 	- Implement high write on new active operation.
 
 
