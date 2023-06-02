@@ -15,11 +15,11 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	MOV 0101 - move contents of A in memory to B in memory. (TBD)
 	LDA 0110 - Load contents of B in memory to register A. (TBD)
 	LDB 0111 - Load contents of A in memory to register B.
-	WRX 1000 - Write the contents of result register Y to memory at address in input register A.
+	WRX 1000 - Write the contents of result register X to memory at address in input register A.
 	JMP0 1001 - Jump to instruction at memory address A if data at memory address B is 0000.
 	JMPC 1001 - Jump to instruction at memory adress A if ALU in previous operation resulted in addition overflow (carry).
+	JMPB 1010
 
-	UDEF 1010
 	UDEF 1011
 	UDEF 1100
 	UDEF 1101
@@ -48,12 +48,14 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	When the mode select is low (default read mode), the data stored at the address in given by the register input will be at the 4-bit data output. The data input is disregarded - it has no effect on the output.
 	When the mode select is high (write mode), the address at the register input will be overwritten with the data from the data input at the (rising edge or high) clock pulse. The output is (0000 or the new/old output).
 
+	The architecture of the RAM look-up table will be a 4:16 multiplexer i.e there will be 4 select bits that will set the result demultiplexer which all memory units are connected to for that memory address. The write mode will work the same way but with a demux at the start that takes the 4-bit write and reroutes it to the memory address.
+
 	
 
 -- TODO --
 - Create B and C flag for subtraction borrowing and addition overflow.
 - Create X register
-- Create single memory unit
+- Create lookup table architecture (4:16 multiplexer)
 
 
 
