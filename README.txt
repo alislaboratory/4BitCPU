@@ -18,7 +18,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	WRX 1000 - Write the contents of result register Y to memory at address in input register A.
 	JMP0 1001 - Jump to instruction at memory address A if data at memory address B is 0000.
 	JMPC 1001 - Jump to instruction at memory adress A if ALU in previous operation resulted in addition overflow (carry).
-	
+
 	UDEF 1010
 	UDEF 1011
 	UDEF 1100
@@ -41,7 +41,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 	Regarding external memory, there are 16 4-bit registers for general purpose access. 
 
-	Registers are constructed of D flip flops (or latches if necessary).
+	Registers are constructed of D flip flops. One of the problems I had with shift registers was that I was using D latches, not flip flops, so the values inputted would instantaneously move through all flip flops and overwrite the data. I need a flip flop, not a latch. The main difference is that a flip flop only stores the D value on the rising edge of the clock, not while the clock pulse is high.
+	
 	The RAM module will have a 4-bit register input, a 1-bit mode select, a 4-bit data input, and a 4-bit data output.
 
 	When the mode select is low (default read mode), the data stored at the address in given by the register input will be at the 4-bit data output. The data input is disregarded - it has no effect on the output.
