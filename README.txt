@@ -53,11 +53,10 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	
 
 -- TODO --
-- Create B and C flag for subtraction borrowing and addition overflow.
-- Create X register
-- Create lookup table architecture (4:16 multiplexer)
-- Create shift instructions
-- Create a bidirectional shift register
+	- Create B subtraction borrowing.
+	- Create X register
+	- Create lookup table architecture (4:16 multiplexer)
+	- Create a bidirectional shift register
 
 
 
