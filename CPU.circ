@@ -371,6 +371,12 @@
       <a name="label" val="X0"/>
       <a name="output" val="true"/>
     </comp>
+    <comp lib="0" loc="(1180,340)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="B"/>
+      <a name="output" val="true"/>
+    </comp>
     <comp lib="0" loc="(220,250)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="label" val="A3"/>
@@ -813,6 +819,7 @@
     <comp loc="(910,370)" name="ThreeToEightDemux">
       <a name="facing" val="south"/>
     </comp>
+    <wire from="(1070,470)" to="(2050,470)"/>
     <wire from="(1070,490)" to="(1560,490)"/>
     <wire from="(1070,510)" to="(1550,510)"/>
     <wire from="(1070,530)" to="(1540,530)"/>
@@ -873,6 +880,8 @@
     <wire from="(1900,500)" to="(2180,500)"/>
     <wire from="(1900,520)" to="(2170,520)"/>
     <wire from="(1900,540)" to="(2160,540)"/>
+    <wire from="(2050,470)" to="(2050,800)"/>
+    <wire from="(2050,800)" to="(2190,800)"/>
     <wire from="(2160,540)" to="(2160,740)"/>
     <wire from="(2160,740)" to="(2190,740)"/>
     <wire from="(2170,520)" to="(2170,710)"/>
