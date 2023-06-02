@@ -10,7 +10,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	NOP 0000 (ALU) - idle operation. Result will always be 0000. (done)
 	ADD 0001 (ALU)(ACT) - addition operation. Results will be A+B. (done)
 	SUB 0010 (ALU)(ACT) - subtraction operation. Results will be A-B . (done)
-	SHR 0011 (ALU)(ACT) - shift A right by B. Will take B clock cycles for result (TBD)
+	SHR 0011 (ALU)(ACT) - shift A right by 1. (TBI)
 	SHL 0100 (ALU)(ACT) - shift A left by B. Will take B clock cycles for result (TBD)
 	MOV 0101 - move contents of A in memory to B in memory. (TBD)
 	LDA 0110 - Load contents of B in memory to register A. (TBD)
