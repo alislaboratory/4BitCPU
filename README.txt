@@ -2,7 +2,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 -- INSTRUCTION SET --
 	This 4-bit CPU will have a capacity of 16 instructions (4-bit opcodes). There are 2 4-bit operands. Overflow and borrowing are disregarded in operations, only in JMPC, JMPB and JMP0 .
-	The ALU will have 3-bit opcodes, so 8 comparator and arithmetic instructions. 
+	The ALU will have 3-bit opcodes, so 8 comparator and arithmetic instructions. The first 8 instructions belong to the ALU to make space for new ALU functionality.
+	i.e any opcode with 0 as MSB (most significant bit) is an ALU instruction. any opcode with 1 is a pure CPU instruction.
 	Instructions passed to the ALU are marked with '(ALU)'.
 	Active operations are marked with an (ACT).
 	Undefined operations have been marked with (UDEF), they will result in no operation.
@@ -12,18 +13,18 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	SUB 0010 (ALU)(ACT) - subtraction operation. Results will be A-B . (done)
 	SHR 0011 (ALU)(ACT) - shift A right by 1. (TBI)
 	SHL 0100 (ALU)(ACT) - shift A left by B. Will take B clock cycles for result (TBD)
-	MOV 0101 - move contents of A in memory to B in memory. (TBD)
-	LDA 0110 - Load contents of B in memory to register A. (TBD)
-	LDB 0111 - Load contents of A in memory to register B.
-	WRX 1000 - Write the contents of result register X to memory at address in input register A.
-	JMP0 1001 - Jump to instruction at memory address A if data at memory address B is 0000.
-	JMPC 1001 - Jump to instruction at memory address A if ALU in most recent active operation resulted in addition overflow (carry).
-	JMPB 1010 - Jump to instruction at memory address A if ALU in most recent active operation resulted in subtraction overflow (borrowing).
+	UDEF 0101
+	UDEF 0110
+	UDEF 0111
+	
+	MOV 1000 - move contents of A in memory to B in memory. (TBD)
+	LDA 1001- Load contents of B in memory to register A. (TBD)
+	LDB 1010- Load contents of A in memory to register B.
+	WRX 1011- Write the contents of result register X to memory at address in input register A.
+	JMP0 1100- Jump to instruction at memory address A if data at memory address B is 0000.
+	JMPC 1101- Jump to instruction at memory address A if ALU in most recent active operation resulted in addition overflow (carry).
+	JMPB 1110- Jump to instruction at memory address A if ALU in most recent active operation resulted in subtraction overflow (borrowing).
 
-	UDEF 1011
-	UDEF 1100
-	UDEF 1101
-	UDEF 1110
 	UDEF 1111
 
 
@@ -56,7 +57,6 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 -- TODO --
 	- Create B subtraction borrowing.
-	- Create X register
 	- Create a bidirectional shift register
 	- Opcode hand-over logic to ALU in CPU.
 	- CPU instructions.
