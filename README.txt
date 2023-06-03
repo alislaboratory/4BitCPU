@@ -8,16 +8,18 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	Active operations are marked with an (ACT).
 	Undefined operations have been marked with (UDEF), they will result in no operation.
 
+	Control unit: for operations requiring access to external memory, 2 inner bits will be used as select lines for the 16 to 4 mux.
+
 	NOP 0000 (ALU) - idle operation. Result will always be 0000. (done)
 	ADD 0001 (ALU)(ACT) - addition operation. Results will be A+B. (done)
 	SUB 0010 (ALU)(ACT) - subtraction operation. Results will be A-B . (done)
-	SHR 0011 (ALU)(ACT) - shift A right by 1. (TBI)
-	SHL 0100 (ALU)(ACT) - shift A left by B. Will take B clock cycles for result (TBD)
+	SHR 0011 (ALU)(ACT) - shift A right by 1. (done)
+	SHL 0100 (ALU)(ACT) - shift A left by 1. (done)
 	UDEF 0101
 	UDEF 0110
 	UDEF 0111
 	
-	MOV 1000 - move contents of A in memory to B in memory. (TBD)
+	MOV 1000 - move contents of A in memory to B in memory. (done)
 	LDA 1001- Load contents of B in memory to register A. (TBD)
 	LDB 1010- Load contents of A in memory to register B.
 	WRX 1011- Write the contents of result register X to memory at address in input register A.
@@ -58,9 +60,10 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 -- TODO --
 	- Create B subtraction borrowing.
 	- Create a bidirectional shift register
-	- Opcode hand-over logic to ALU in CPU.
 	- CPU instructions.
 	- Implement high write on new active operation.
+	- Create control unit
+	- Create accumulator and program counter registers
 
 
 
