@@ -20,8 +20,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	UDEF 0111
 	
 	MOV 1000 - move contents of A in memory to B in memory. (done)
-	LDA 1001- Load contents of B in memory to register A. (TBD)
-	LDB 1010- Load contents of A in memory to register B.
+	LDA 1001- Load contents of B in memory to register A. (done)
+	LDB 1010- Load contents of A in memory to register B. (done)
 	WRX 1011- Write the contents of result register X to memory at address in input register A.
 	JMP0 1100- Jump to instruction at memory address A if data at memory address B is 0000.
 	JMPC 1101- Jump to instruction at memory address A if ALU in most recent active operation resulted in addition overflow (carry).
@@ -64,6 +64,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	- Implement high write on new active operation.
 	- Create control unit
 	- Create accumulator and program counter registers
+	- Make Control Unit architecture more efficient.
 
 
 
