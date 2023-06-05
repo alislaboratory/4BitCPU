@@ -22,16 +22,16 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	MOV 1000 - move contents of A in memory to B in memory. (done)
 	LDA 1001- Load contents of B in memory to register A. (done)
 	LDB 1010- Load contents of A in memory to register B. (done)
-	WRX 1011- Write the contents of result register X to memory at address in input register A.
-	JMP0 1100- Jump to instruction at memory address A if data at memory address B is 0000.
-	JMPC 1101- Jump to instruction at memory address A if ALU in most recent active operation resulted in addition overflow (carry).
-	JMPB 1110- Jump to instruction at memory address A if ALU in most recent active operation resulted in subtraction overflow (borrowing).
-
+	WRX 1011- Write the contents of result register X to memory at address in input register A. (TBD)
+	JMP 1100- Set program counter (jump) to instruction at memory address A
+	JMP0 1101- Jump to instruction at memory address A if ALU in most recent active operation resulted in addition overflow (carry).
+	UDEF 1110
 	UDEF 1111
 
 
 
 	There can be a capacity for future operations such as multiplication and dividing, but at the moment these are user defined. In the Mk2, there should be more capacity for complex operations, as in this computer there are only 4 bits, so multiplication and division is not necessary and using while loops with ADD and JMP is more efficient for myself.
+	There is also a capacity for JMPC (jump if carry) and JMPB (jump if borrow) operations but these are not implemented yet. If they are, they will be at the last two undefined instructions.
 
 	Note: an 'active' operation refers to an operation that requires an output. For example, ADD is an active operation, while MOV and the LD operations are active. A list of active operations is defined above. The X accumulator register and the B and C ALU flags will not be overwritten until there is a new active operation. All ALU operations are active.
 
