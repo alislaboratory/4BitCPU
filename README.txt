@@ -24,11 +24,10 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	LDB 1010- Load contents of A in memory to register B. (done)
 	UDEF 1011
 	JMP 1100- Set program counter (jump) to instruction at memory address A.
-	JMP0 1101- Jump to instruction at memory address A if ALU in most recent active operation resulted in addition overflow (carry).
-	WRX 1110- Write the contents of result register X to memory at address in input register A. (TBD)
+	JMP0 1101- Jump to instruction at memory address A if contents at memory address B is 0000.
+	WRX 1110- Write the contents of result register X to memory at address in input register A. (done()
 	UDEF 1111
 	
-
 
 
 	There can be a capacity for future operations such as multiplication and dividing, but at the moment these are user defined. In the Mk2, there should be more capacity for complex operations, as in this computer there are only 4 bits, so multiplication and division is not necessary and using while loops with ADD and JMP is more efficient for myself.
