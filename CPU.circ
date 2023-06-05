@@ -2052,6 +2052,10 @@
       <a name="appearance" val="NewPins"/>
       <a name="label" val="CK"/>
     </comp>
+    <comp lib="0" loc="(310,750)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="R"/>
+    </comp>
     <comp lib="0" loc="(450,430)" name="Constant">
       <a name="value" val="0x0"/>
     </comp>

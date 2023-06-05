@@ -55,16 +55,24 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 	The architecture of the RAM look-up table will be a 4:16 multiplexer i.e there will be 4 select bits that will set the result demultiplexer which all memory units are connected to for that memory address. The write mode will work the same way but with a demux at the start that takes the 4-bit write and reroutes it to the memory address.
 
+
+
+-- CPU BEHAVIOUR --
+	= FETCH-EXECUTE CYCLE =
+	This computer uses the fetch execute cycle. Each cycle, the program counter is incremented unless a jump instruction is encountered or there is a reset.
+	The program counter starts at 0000.
+	- Fetch: 
+
 	
 
 -- TODO --
 	- Create B subtraction borrowing.
 	- Create a bidirectional shift register
-	- Junmp instrections
+	- Jump instrections
 	- Implement high write on new active operation.
 	- Create program counter registers
-	- Make Control Unit architecture more efficient.
 	- Implement active on control unit so perpetual swapping doesn't occur.
+	- Decide whether there is separate or one memory module for instructions and general purpose memory.
 
 
 
