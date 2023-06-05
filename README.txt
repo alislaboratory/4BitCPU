@@ -72,6 +72,15 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	There is no store part in the cycle, this will be user defined. The value in X will be overwritten when the next active operation executes, so it is up to the user to make sure they are 
 	storing their values.
 
+	= PROGRAM COUNTER =
+	Instead of the traditional design, my attempt of the program counter is to make a feedback adder. A 4-bit adder and 1/2 registers are needed. Register A is initialised at 0000 to begin with. A constant of 0001 is the other 
+	input. The adder is slightly modified to only add on the rising edge of the clock. The output is register B, which is then fed back into register A, and the cycle repeats on the next clock pulse.
+	Wow, I was not expecting this to work first try! I thought that this counter would be something I wouldn't understand, but it seems that making it myself actually is better than using online resources. Still holding
+	the completely home-made streak (except D-flip flops but those are literally impossible to DIY with gates).
+
+	Regardless, the counter works and it is now time to implement the jumping (write preset value) for program counter.
+	
+
 
 	
 
@@ -80,13 +89,11 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	- Create a bidirectional shift register
 	- Jump instrections
 	- Implement high write on new active operation.
-	- Create program counter registers
 	- Implement active on control unit so perpetual swapping doesn't occur.
 	- Decide whether there is separate or one memory module for instructions and general purpose memory.
-	- Figure out program counter logic.
 	- Where will opcodes and operands be stored?
 	- Complete rewrite of memory architecture.
-	- Learn about JK flip flops and make 4-bit counter
+	- Implement jump instructions
 
 
 
