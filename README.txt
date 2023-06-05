@@ -19,7 +19,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	UDEF 0110
 	UDEF 0111
 	
-	MOV 1000 - move contents of A in memory to B in memory. (done)
+	SWP 1000 - Swap values held in registers A and B. (done)
 	LDA 1001- Load contents of B in memory to register A. (done)
 	LDB 1010- Load contents of A in memory to register B. (done)
 	UDEF 1011
