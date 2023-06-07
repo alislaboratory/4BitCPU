@@ -79,6 +79,12 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	the completely home-made streak (except D-flip flops but those are literally impossible to DIY with gates).
 
 	Regardless, the counter works and it is now time to implement the jumping (write preset value) for program counter.
+
+-- PATHWAYS --
+Concurrently with designing my Mk2 CPU, I would like to attempt to create my 4-bit CPU on breadboards. To do this, I will need testing equipment such as oscilloscopes and logic
+analysers. A supposed course of action is to get in touch with CSU, UTS or some other university. Ms. Rainger also suggested Core Electronics or Paktronics but I don't think they have actual chip fabs. They could have connections or sponsor equipment for me.
+First of all, I should get the CPU fully working. Once this is done, I will begin work on my
+Mk2 CPU while beginning the hardware step of this project. Mrs. Rainger also had an old contact who used to work for a chip fab company.
 	
 
 
@@ -87,13 +93,12 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 -- TODO --
 	- Create B subtraction borrowing.
 	- Create a bidirectional shift register
-	- Jump instrections
+	- Jump instructions
 	- Implement high write on new active operation.
 	- Implement active on control unit so perpetual swapping doesn't occur.
-	- Decide whether there is separate or one memory module for instructions and general purpose memory.
-	- Where will opcodes and operands be stored?
-	- Complete rewrite of memory architecture.
+	- Make GP and progmem
 	- Implement jump instructions
+
 
 
 
