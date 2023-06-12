@@ -96,8 +96,10 @@ Mk2 CPU while beginning the hardware step of this project. Mrs. Rainger also had
 	- Jump instructions
 	- Implement high write on new active operation.
 	- Implement active on control unit so perpetual swapping doesn't occur.
-	- Make GP and progmem
+	- Make GP and progmem memory
 	- Implement jump instructions
+	- Fix progcounter for non-rising edge clock pulse so one clock pulser per count
+	- Fix progcounter for set
 
 
 

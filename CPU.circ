@@ -6774,6 +6774,9 @@
     <comp lib="1" loc="(670,520)" name="OR Gate"/>
     <comp lib="1" loc="(670,580)" name="OR Gate"/>
     <comp lib="1" loc="(670,640)" name="OR Gate"/>
+    <comp lib="8" loc="(1025,1115)" name="Text">
+      <a name="text" val="Todo: Fix double clock cycle for single count"/>
+    </comp>
     <comp loc="(1240,630)" name="FourBitAdder"/>
     <comp loc="(1500,650)" name="DataStore"/>
     <comp loc="(400,550)" name="FourBitBuffer"/>
@@ -6879,5 +6882,56 @@
     <wire from="(950,650)" to="(1020,650)"/>
     <wire from="(950,670)" to="(1020,670)"/>
     <wire from="(950,690)" to="(1020,690)"/>
+  </circuit>
+  <circuit name="DLatch">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="DLatch"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(340,550)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="CK"/>
+    </comp>
+    <comp lib="0" loc="(350,480)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(890,480)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(890,610)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="1" loc="(430,620)" name="NOT Gate"/>
+    <comp lib="1" loc="(560,500)" name="NAND Gate"/>
+    <comp lib="1" loc="(560,600)" name="NAND Gate"/>
+    <comp lib="1" loc="(790,610)" name="NAND Gate"/>
+    <comp lib="1" loc="(800,480)" name="NAND Gate"/>
+    <wire from="(340,520)" to="(340,550)"/>
+    <wire from="(340,520)" to="(500,520)"/>
+    <wire from="(340,550)" to="(340,580)"/>
+    <wire from="(340,580)" to="(500,580)"/>
+    <wire from="(350,480)" to="(390,480)"/>
+    <wire from="(390,480)" to="(390,620)"/>
+    <wire from="(390,480)" to="(500,480)"/>
+    <wire from="(390,620)" to="(400,620)"/>
+    <wire from="(430,620)" to="(500,620)"/>
+    <wire from="(560,500)" to="(710,500)"/>
+    <wire from="(560,600)" to="(730,600)"/>
+    <wire from="(710,460)" to="(710,500)"/>
+    <wire from="(710,460)" to="(740,460)"/>
+    <wire from="(730,590)" to="(820,590)"/>
+    <wire from="(730,600)" to="(730,630)"/>
+    <wire from="(740,500)" to="(740,570)"/>
+    <wire from="(740,570)" to="(850,570)"/>
+    <wire from="(790,610)" to="(850,610)"/>
+    <wire from="(800,480)" to="(820,480)"/>
+    <wire from="(820,480)" to="(820,590)"/>
+    <wire from="(820,480)" to="(890,480)"/>
+    <wire from="(850,570)" to="(850,610)"/>
+    <wire from="(850,610)" to="(890,610)"/>
   </circuit>
 </project>
