@@ -6713,6 +6713,8 @@
     <wire from="(990,360)" to="(990,710)"/>
     <wire from="(990,710)" to="(1080,710)"/>
   </circuit>
+<<<<<<< HEAD
+=======
   <circuit name="FourBitCounter">
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="FourBitCounter"/>
@@ -6934,4 +6936,8 @@
     <wire from="(850,570)" to="(850,610)"/>
     <wire from="(850,610)" to="(890,610)"/>
   </circuit>
+<<<<<<< Updated upstream
+=======
+>>>>>>> 5133e82636b6ef356f3efe13bd443bf407abe9b9
+>>>>>>> Stashed changes
 </project>

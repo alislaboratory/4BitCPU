@@ -1,0 +1,50 @@
+=== Understanding Logisim file structure for automation ===
+- INTRODUCTION -
+	Since pretty much completing my 4-bit CPU, with only program counter to finish at the time of writing, I really had wanted to begin work on the 
+	Mk2 CPU - 12 bits. Of course, for my Mk1 CPU, I could hand-wire everything 
+	since it was only 4-bits. But, as I got to the more complex things, such as memory modules became really tedious. Now the 12-bit CPU will be even worse - levels where there'll be thousands of wires. 
+
+	Thus, an automation feature is required. I had first thought of 
+	contributing directly to Logisim, but after seeing the source code and 
+	that it was in Java, I decided against this route. I explored other options as well, such as VHDL and Verilog, but there was nothing 
+	quite like seeing everything come together in Logisim. Since there aren't currently any automation features in Logisim, I had to do something about it.
+	Then, I had an idea. I noticed that Logisim stores its circuits in a .circ
+	file. More specifically, a .xml type file. After some inspection, I noticed that it was actually very human-readable and corresponds directly
+	to the circuit. 
+
+- COMPONENT LAYOUT -
+	A circuit starts with the following tag:
+		<circuit name="MyCircuit">
+	And ends with </circuit> as would be in HTML or XML.
+
+	Some metadata is defined right at the start:
+		<a name="appearance" val="logisim_evolution"/>
+	    <a name="circuit" val="MyCircuit"/>
+	    <a name="circuitnamedboxfixedsize" val="true"/>
+	    <a name="simulationFrequency" val="1.0"/>
+
+	Pins are defined as follows:
+	 	Output
+		 <comp lib="0" loc="(x,y)" name="Pin">
+	      <a name="appearance" val="NewPins"/>
+	      <a name="facing" val="west"/>
+	      <a name="label" val="OUT"/>
+	      <a name="output" val="true"/>
+	    </comp>
+	    Input
+	    <comp lib="0" loc="(x,y)" name="Pin">
+      	  <a name="appearance" val="NewPins"/>
+      	  <a name="label" val="IN"/>
+    	</comp>
+
+    External circuits:
+    	<comp loc="(x,y)" name="OtherCircuit"/>
+
+    Note that not everything needs to be noted here - just the important things for quick reference.
+
+    Default values for facing is east (pin faces the right)
+
+- WIRING -
+	Actual wires won't be used for scripting as they will be too complex to automatically route. Instead, tunnels will be used to prevent.
+- TODO -
+	- Find how pin location works for circuits.
