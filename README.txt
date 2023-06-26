@@ -56,6 +56,19 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 	The architecture of the RAM look-up table will be a 4:16 multiplexer i.e there will be 4 select bits that will set the result demultiplexer which all memory units are connected to for that memory address. The write mode will work the same way but with a demux at the start that takes the 4-bit write and reroutes it to the memory address.
 
+	Jump instructions: since I am making my instruction memory now 12 bits, I cannot address it with 4-bits in a single clock pulse. It would take 16 clock pulses
+	for one jump instructions. So, I have two solutions:
+	1: Relative Addressing
+	I can have jump instructions that simply go 5/10/n instructions before and after. I can design my programs around this and it would give a unique challenge 
+	for creating cool programs.
+	2: Jump table
+	I can have a memory table that is customisable for programs so that 16 12-bit addresses can be fetched. I can even use this on top of the relative addressing,
+	as loops are a big part of software programs.
+
+	For now, I will implement the relative addressing instruction. I'll do a 5 instruction jump. I can make one instruction that handles forward and backward jumping,
+	as the instruction only uses one register. The second can control forward or backward - if the LSB is 0, jump back. Otherwise, jump forwards. This way, I could even 
+	save memory by using other addresses already being used for other operations that will control forward and backward jumping in instruction memory.
+
 
 
 -- CPU BEHAVIOUR --
@@ -73,12 +86,10 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	storing their values.
 
 	= PROGRAM COUNTER =
-	Instead of the traditional design, my attempt of the program counter is to make a feedback adder. A 4-bit adder and 1/2 registers are needed. Register A is initialised at 0000 to begin with. A constant of 0001 is the other 
-	input. The adder is slightly modified to only add on the rising edge of the clock. The output is register B, which is then fed back into register A, and the cycle repeats on the next clock pulse.
-	Wow, I was not expecting this to work first try! I thought that this counter would be something I wouldn't understand, but it seems that making it myself actually is better than using online resources. Still holding
-	the completely home-made streak (except D-flip flops but those are literally impossible to DIY with gates).
-
-	Regardless, the counter works and it is now time to implement the jumping (write preset value) for program counter.
+	I decided to redesign my program counter again. I've decided to my instruction memory 12-bits now, so capable of holding 4096 bits and therefor around 340 instructions.
+	So, an adder circuit would now be stupid as there would be literally hundreds or even thousands of gates. I think I should use a standard binary counter with JK flip-flops.
+	It doesn't mean its not homemade, as I can still learn about it. But first, I think it's always good to take a shot before we copy online. 
+	I had a look at the clock pulse diagram, and for each Q_n, it pulses halve the amount in x clock pulses for Q_(n-1). This way, we can use two flip flops before each consecutive output.
 
 -- PATHWAYS --
 Concurrently with designing my Mk2 CPU, I would like to attempt to create my 4-bit CPU on breadboards. To do this, I will need testing equipment such as oscilloscopes and logic
