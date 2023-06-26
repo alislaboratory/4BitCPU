@@ -6994,4 +6994,34 @@
     <wire from="(970,480)" to="(1040,480)"/>
     <wire from="(970,480)" to="(970,500)"/>
   </circuit>
+  <circuit name="ProgramCounter">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="ProgramCounter"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(210,570)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Q3"/>
+    </comp>
+    <comp lib="0" loc="(210,610)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Q2"/>
+    </comp>
+    <comp lib="0" loc="(210,650)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Q1"/>
+    </comp>
+    <comp lib="0" loc="(210,690)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="Q0"/>
+    </comp>
+    <comp lib="0" loc="(210,790)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="HALT"/>
+    </comp>
+    <comp lib="0" loc="(210,830)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="label" val="CK"/>
+    </comp>
+  </circuit>
 </project>
