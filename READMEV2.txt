@@ -18,9 +18,12 @@ Mk1 4-Bit CPU - Datasheet V0.2
 	1000 08 SWP Swap contents of registers A and B. (MEMOP)
 	1001 09 WAB Write operand 1 into A and operand 2 into B. (MEMOP)
 	1010 0A LDA Load contents at memory address in register A. (MEMOP)
-	1011 0B UDF
-	1100 0C JMF Decrement/increment program counter by 5
+	1011 0B JMF Decrement/increment program counter by 5.
+	1100 0C UDF Write the contents of accumulator to memory address in register A.
 	1101 0D UDF 
-	1110 0E WRX Write the contents of accumulator to memory address in register A.
+	1110 0E UDF
 
 
+== CPU Cycle ==
+	The CPU cycle will be as follows:
+	- Fetch: the program counter gets tht
