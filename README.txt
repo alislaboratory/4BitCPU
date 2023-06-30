@@ -22,7 +22,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	SWP 1000 (MEMOP) - Swap contents of registers A and B. 
 	WAB 1001 (MEMOP) - Write operand A to register A and operand B into register B.
 	LDA 1010 (MEMOP) - Write
-	JMF 1011 - Increment/decrement the program counter by 5.
+	JMA 1011 - Increment/decrement the program counter by value of operand A.
 	WRX 1100 - Write contents of accumulator to memory address in register A.
 	UDF 1101
 	UDF 1110
@@ -71,6 +71,9 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	as the instruction only uses one register. The second can control forward or backward - if the LSB is 0, jump back. Otherwise, jump forwards. This way, I could even 
 	save memory by using other addresses already being used for other operations that will control forward and backward jumping in instruction memory.
 
+	Instruction memory: It is now 12-bit address and 12-bit data width - this allows for 2^12 = 4096 instructions. Each instruction is 12 bits, so this way it prevents having to use 3 clock cycles to fetch a single instruction if there were 4-bits - each address is
+	split into 3 digit hex: xxx, where the MSB is the opcode and the the next two bits are operands 1 and 2 respectively. These will be split and fed into the control unit as necessary.
+
 
 
 -- CPU BEHAVIOUR --
@@ -92,6 +95,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	So, an adder circuit would now be stupid as there would be literally hundreds or even thousands of gates. I think I should use a standard binary counter with JK flip-flops.
 	It doesn't mean its not homemade, as I can still learn about it. But first, I think it's always good to take a shot before we copy online. 
 	I had a look at the clock pulse diagram, and for each Q_n, it pulses halve the amount in x clock pulses for Q_(n-1). This way, we can use two flip flops before each consecutive output.
+
+	Program counter is done - uses consecutive D flip flops and then the S and R inputs are used for setting (jump instructions).
 
 -- PATHWAYS --
 Concurrently with designing my Mk2 CPU, I would like to attempt to create my 4-bit CPU on breadboards. To do this, I will need testing equipment such as oscilloscopes and logic
