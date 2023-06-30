@@ -19,13 +19,13 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	UDEF 0110
 	UDEF 0111
 	
-	SWP 1000 - Swap values held in registers A and B. (done)
-	LDA 1001- Load contents of B in memory to register A. (done)
-	LDB 1010- Load contents of A in memory to register B. (done)
-	UDEF 1011
-	JMP 1100- Set program counter (jump) to instruction at memory address A.
-	JMP0 1101- Jump to instruction at memory address A if contents at memory address B is 0000.
-	WRX 1110- Write the contents of result register X to memory at address in input register A. (done()
+	SWP 1000 
+	WAB 1001 
+	LDA 1010 
+	JMF 1011
+	WRX 1100
+	UDF 1101- Jump to instruction at memory address A if contents at memory address B is 0000.
+	UDF 1110- Write the contents of result register X to memory at address in input register A. (done()
 	UDEF 1111
 	
 
@@ -34,6 +34,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	There is also a capacity for JMPC (jump if carry) and JMPB (jump if borrow) operations but these are not implemented yet. If they are, they will be at the last two undefined instructions.
 
 	Note: an 'active' operation refers to an operation that requires an output. For example, ADD is an active operation, while MOV and the LD operations are active. A list of active operations is defined above. The X accumulator register and the B and C ALU flags will not be overwritten until there is a new active operation. All ALU operations are active.
+
+	30/06: Control unit rehaul. Previous instruction set found in previous versions of the document
 
 
 -- MEMORY --
