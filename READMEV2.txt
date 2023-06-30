@@ -19,9 +19,11 @@ Mk1 4-Bit CPU - Datasheet V0.2
 	1001 09 WAB Write operand 1 into A and operand 2 into B. (MEMOP)
 	1010 0A LDA Load contents at memory address in register A. (MEMOP)
 	1011 0B JMF Decrement/increment program counter by 5.
-	1100 0C UDF Write the contents of accumulator to memory address in register A.
+	1100 0C WRX Write the contents of accumulator to memory address in register A.
 	1101 0D UDF 
 	1110 0E UDF
+
+	Note: JMF instruction 1011 is handled in CPU, outside of ALU or CU (this is arbitrary, but prevents lots of inputs to the control unit).
 
 
 == CPU Cycle ==
