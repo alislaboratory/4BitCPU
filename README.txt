@@ -80,6 +80,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	Note for future:  I may have to modify the instruction memory circuitry if I cannot find any 16-bit EEPROMs. A way around that is to use 8 bit EEPROM, with a module that handles writing (6-bits into one, 6 to the next). This will lower the amount of memory for
 	ease of circuit creation. Then reading is the same process, reading the current address bits 5-0, then adding that with current address + 1 bits 5-0. For now, it can be ignored.
 
+	There is a slight problem where loading requires 2 clock cycles to fetch the value of the address in memory. This can be fixed by using a counter that activates the program counter HALT for a single cycle while the value is fetched, then disabled the next clock cycle.
+
 
 
 -- CPU BEHAVIOUR --
@@ -118,19 +120,17 @@ Program to test memory:
 WAB 2 0 ; write 2 to reg A
 ADD 0 0 ; 2 at accum
 WRX 1 0 ; write 2 to address 1
+WAB 0 0
+ADD 0 0
 WAB 1 0 ; write 1 to reg A
-LDA 0 0 ; load 2 from mem addr 1 into reg A
+LDA 1 0 ; load 2 from mem addr 1 into reg A
+ADD 0 0
 
 Program 2: Now the RAM is connected. Let's repetitively increment a number by 2. First, we want to store 2 in memory. Then, we want to load it into A, swap them, then load our current counter, then add, then write it to the counter address. Then, jump back to the start.
 WAB 2 0
-SWP 0 0 ; now register A is 0 and register B is 2
-WAB 0 0
-LDA 0 0 ; load the counter into register A
-ADD 0 0 ; add the numbers, now accumulator contains the sum
-WAB 0 0 ; write counter address
-WRX 0 0 ; write accumulator to counter address
-WAB 7 0 ;  ready for jump
-JMA 7 0 ; jump to start
+SWP 0 0
+WAB 1 0
+LDA 0 0
 
 
 
