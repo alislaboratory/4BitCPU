@@ -114,8 +114,7 @@ Now that the CPU is finished (1/07/23), it's time to make some programs. The fir
 Program to test memory:
 WAB 2 0 ; write 2 to reg A
 ADD 0 0 ; 2 at accum
-WAB 1 0
-WRX 0 0 ; write 2 to address 1
+WRX 1 0 ; write 2 to address 1
 WAB 1 0 ; write 1 to reg A
 LDA 0 0 ; load 2 from mem addr 1 into reg A
 
