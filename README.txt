@@ -77,6 +77,9 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	I just had a slight problem with the program counter - since the output is a register, it is still performing the jump subtraction when it shouldn't be. A simple fix is to only allow through the subtrahend when the write pin, while also allowing program counter write
 	on high write pin. Let's see if this fixes it. It did fix it, although I had to use my own twelve bit buffer since the inbuilt one is a tri-state so when off it is high impedance and breaks the subtractor.
 
+	Note for future:  I may have to modify the instruction memory circuitry if I cannot find any 16-bit EEPROMs. A way around that is to use 8 bit EEPROM, with a module that handles writing (6-bits into one, 6 to the next). This will lower the amount of memory for
+	ease of circuit creation. Then reading is the same process, reading the current address bits 5-0, then adding that with current address + 1 bits 5-0. For now, it can be ignored.
+
 
 
 -- CPU BEHAVIOUR --
