@@ -74,6 +74,9 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	Instruction memory: It is now 12-bit address and 12-bit data width - this allows for 2^12 = 4096 instructions. Each instruction is 12 bits, so this way it prevents having to use 3 clock cycles to fetch a single instruction if there were 4-bits - each address is
 	split into 3 digit hex: xxx, where the MSB is the opcode and the the next two bits are operands 1 and 2 respectively. These will be split and fed into the control unit as necessary.
 
+	I just had a slight problem with the program counter - since the output is a register, it is still performing the jump subtraction when it shouldn't be. A simple fix is to only allow through the subtrahend when the write pin, while also allowing program counter write
+	on high write pin. Let's see if this fixes it.
+
 
 
 -- CPU BEHAVIOUR --
