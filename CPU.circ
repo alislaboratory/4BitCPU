@@ -25,7 +25,7 @@
   <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
-    <a name="simlimit" val="1000"/>
+    <a name="simlimit" val="50000"/>
     <a name="simrand" val="0"/>
   </options>
   <mappings>
@@ -2316,10 +2316,13 @@
       <a name="addrWidth" val="12"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 12 12
-920 100 c10 930 b30
+935 100 940 b40
 </a>
       <a name="dataWidth" val="12"/>
       <a name="label" val="PROGMEM"/>
+    </comp>
+    <comp lib="8" loc="(950,350)" name="Text">
+      <a name="text" val="try adding instruction register - idk whats going on but the jmp is being weird"/>
     </comp>
     <comp loc="(1080,490)" name="ProgramCounter"/>
     <comp loc="(1240,1230)" name="FourBitRegister">
@@ -3737,6 +3740,9 @@
     </comp>
     <comp lib="8" loc="(75,805)" name="Text">
       <a name="text" val="Mode Select"/>
+    </comp>
+    <comp lib="8" loc="(750,904)" name="Text">
+      <a name="text" val="may need to add a register for A and D to propagate"/>
     </comp>
     <comp loc="(1710,1130)" name="FourBitRegister">
       <a name="label" val="RegisterThirteen"/>
@@ -6609,6 +6615,18 @@
       <a name="facing" val="north"/>
       <a name="label" val="MD"/>
     </comp>
+    <comp lib="0" loc="(820,3030)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(820,3050)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(820,3070)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(820,3090)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
     <comp lib="0" loc="(850,2040)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="north"/>
@@ -6627,11 +6645,25 @@
       <a name="fanout" val="12"/>
       <a name="incoming" val="12"/>
     </comp>
+    <comp lib="0" loc="(890,3030)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="4"/>
+      <a name="incoming" val="4"/>
+    </comp>
     <comp lib="0" loc="(910,2040)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="north"/>
     </comp>
     <comp lib="0" loc="(920,2420)" name="Splitter">
+      <a name="fanout" val="12"/>
+      <a name="incoming" val="12"/>
+    </comp>
+    <comp lib="0" loc="(940,3030)" name="Bit Extender">
+      <a name="in_width" val="4"/>
+      <a name="out_width" val="12"/>
+      <a name="type" val="zero"/>
+    </comp>
+    <comp lib="0" loc="(940,3030)" name="Splitter">
       <a name="fanout" val="12"/>
       <a name="incoming" val="12"/>
     </comp>
@@ -7056,11 +7088,17 @@
     <wire from="(820,2230)" to="(820,2390)"/>
     <wire from="(820,2460)" to="(820,2690)"/>
     <wire from="(820,2460)" to="(860,2460)"/>
+    <wire from="(820,3030)" to="(830,3030)"/>
+    <wire from="(820,3050)" to="(870,3050)"/>
+    <wire from="(820,3070)" to="(860,3070)"/>
+    <wire from="(820,3090)" to="(870,3090)"/>
     <wire from="(820,750)" to="(820,790)"/>
     <wire from="(820,790)" to="(1710,790)"/>
     <wire from="(830,2240)" to="(830,2390)"/>
     <wire from="(830,2450)" to="(830,2710)"/>
     <wire from="(830,2450)" to="(860,2450)"/>
+    <wire from="(830,3030)" to="(830,3040)"/>
+    <wire from="(830,3040)" to="(870,3040)"/>
     <wire from="(830,730)" to="(830,780)"/>
     <wire from="(830,780)" to="(1720,780)"/>
     <wire from="(840,170)" to="(840,720)"/>
@@ -7083,12 +7121,15 @@
     <wire from="(860,1480)" to="(890,1480)"/>
     <wire from="(860,1500)" to="(880,1500)"/>
     <wire from="(860,2270)" to="(860,2390)"/>
+    <wire from="(860,3060)" to="(860,3070)"/>
+    <wire from="(860,3060)" to="(870,3060)"/>
     <wire from="(870,1010)" to="(920,1010)"/>
     <wire from="(870,1190)" to="(1800,1190)"/>
     <wire from="(870,1210)" to="(1790,1210)"/>
     <wire from="(870,1230)" to="(1780,1230)"/>
     <wire from="(870,1250)" to="(1770,1250)"/>
     <wire from="(870,2280)" to="(870,2390)"/>
+    <wire from="(870,3070)" to="(870,3090)"/>
     <wire from="(870,950)" to="(890,950)"/>
     <wire from="(870,970)" to="(900,970)"/>
     <wire from="(870,990)" to="(910,990)"/>
@@ -7096,6 +7137,7 @@
     <wire from="(880,1730)" to="(880,2040)"/>
     <wire from="(880,1730)" to="(940,1730)"/>
     <wire from="(890,1480)" to="(890,1680)"/>
+    <wire from="(890,3030)" to="(900,3030)"/>
     <wire from="(890,670)" to="(1940,670)"/>
     <wire from="(890,670)" to="(890,950)"/>
     <wire from="(900,1460)" to="(900,1690)"/>
