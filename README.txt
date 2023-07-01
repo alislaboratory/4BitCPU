@@ -21,9 +21,9 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	
 	SWP 1000 (MEMOP) - Swap contents of registers A and B. 
 	WAB 1001 (MEMOP) - Write operand A to register A and operand B into register B.
-	LDA 1010 (MEMOP) - Write
+	LDA 1010 (MEMOP) - Fetch address at register A and write into register A.
 	JMA 1011 - Increment/decrement the program counter by value of operand A.
-	WRX 1100 - Write contents of accumulator to memory address in register A.
+	WRX 1100 - Write contents of accumulator to memory address in operand A.
 	UDF 1101
 	UDF 1110
 	UDF 1111
@@ -75,7 +75,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	split into 3 digit hex: xxx, where the MSB is the opcode and the the next two bits are operands 1 and 2 respectively. These will be split and fed into the control unit as necessary.
 
 	I just had a slight problem with the program counter - since the output is a register, it is still performing the jump subtraction when it shouldn't be. A simple fix is to only allow through the subtrahend when the write pin, while also allowing program counter write
-	on high write pin. Let's see if this fixes it.
+	on high write pin. Let's see if this fixes it. It did fix it, although I had to use my own twelve bit buffer since the inbuilt one is a tri-state so when off it is high impedance and breaks the subtractor.
 
 
 
@@ -106,6 +106,33 @@ Concurrently with designing my Mk2 CPU, I would like to attempt to create my 4-b
 analysers. A supposed course of action is to get in touch with CSU, UTS or some other university. Ms. Rainger also suggested Core Electronics or Paktronics but I don't think they have actual chip fabs. They could have connections or sponsor equipment for me.
 First of all, I should get the CPU fully working. Once this is done, I will begin work on my
 Mk2 CPU while beginning the hardware step of this project. Mrs. Rainger also had an old contact who used to work for a chip fab company.
+
+-- PROGRAMS --
+Now that the CPU is finished (1/07/23), it's time to make some programs. The first ever one I made to test is as follows:
+971 100 930 b30. This repetitively adds 1+7 and outputs. (the general purpose memory was not connected at this point).
+
+Program to test memory:
+WAB 2 0 ; write 2 to reg A
+ADD 0 0 ; 2 at accum
+WAB 1 0
+WRX 0 0 ; write 2 to address 1
+WAB 1 0 ; write 1 to reg A
+LDA 0 0 ; load 2 from mem addr 1 into reg A
+
+Program 2: Now the RAM is connected. Let's repetitively increment a number by 2. First, we want to store 2 in memory. Then, we want to load it into A, swap them, then load our current counter, then add, then write it to the counter address. Then, jump back to the start.
+WAB 2 0
+SWP 0 0 ; now register A is 0 and register B is 2
+WAB 0 0
+LDA 0 0 ; load the counter into register A
+ADD 0 0 ; add the numbers, now accumulator contains the sum
+WAB 0 0 ; write counter address
+WRX 0 0 ; write accumulator to counter address
+WAB 7 0 ;  ready for jump
+JMA 7 0 ; jump to start
+
+
+
+
 	
 
 
