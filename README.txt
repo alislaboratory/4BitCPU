@@ -112,6 +112,8 @@ analysers. A supposed course of action is to get in touch with CSU, UTS or some 
 First of all, I should get the CPU fully working. Once this is done, I will begin work on my
 Mk2 CPU while beginning the hardware step of this project. Mrs. Rainger also had an old contact who used to work for a chip fab company.
 
+For my Mk2 CPU, I would like to make it serial - using a 1-bit ALU that I will custom make.
+
 -- PROGRAMS --
 Now that the CPU is finished (1/07/23), it's time to make some programs. The first ever one I made to test is as follows:
 971 100 930 b30. This repetitively adds 1+7 and outputs. (the general purpose memory was not connected at this point).
