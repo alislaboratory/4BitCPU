@@ -2172,15 +2172,16 @@
     <comp lib="0" loc="(1600,550)" name="Tunnel">
       <a name="label" val="OP3"/>
     </comp>
-    <comp lib="0" loc="(1610,1720)" name="Tunnel">
-      <a name="facing" val="south"/>
-      <a name="label" val="MWS"/>
-    </comp>
+    <comp lib="0" loc="(1610,1720)" name="Constant"/>
     <comp lib="0" loc="(1610,1740)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="north"/>
       <a name="label" val="MWS"/>
       <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(1640,1700)" name="Tunnel">
+      <a name="facing" val="south"/>
+      <a name="label" val="MWS"/>
     </comp>
     <comp lib="0" loc="(1690,1740)" name="Pin">
       <a name="appearance" val="NewPins"/>
@@ -2315,7 +2316,7 @@
       <a name="addrWidth" val="12"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 12 12
-920 100 c10 910 a10
+920 100 c10 930 b30
 </a>
       <a name="dataWidth" val="12"/>
       <a name="label" val="PROGMEM"/>
@@ -2443,6 +2444,7 @@
     <wire from="(1600,870)" to="(1710,870)"/>
     <wire from="(1610,1320)" to="(1610,1520)"/>
     <wire from="(1610,1520)" to="(1900,1520)"/>
+    <wire from="(1610,1710)" to="(1640,1710)"/>
     <wire from="(1610,1720)" to="(1610,1740)"/>
     <wire from="(1610,880)" to="(1610,1320)"/>
     <wire from="(1610,880)" to="(1720,880)"/>
@@ -2460,6 +2462,7 @@
     <wire from="(1630,510)" to="(1900,510)"/>
     <wire from="(1630,900)" to="(1630,1300)"/>
     <wire from="(1630,900)" to="(1740,900)"/>
+    <wire from="(1640,1700)" to="(1640,1710)"/>
     <wire from="(1640,330)" to="(1640,500)"/>
     <wire from="(1640,330)" to="(1750,330)"/>
     <wire from="(1640,500)" to="(1870,500)"/>
