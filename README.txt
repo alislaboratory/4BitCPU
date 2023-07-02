@@ -106,6 +106,10 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 	Program counter is done - uses consecutive D flip flops and then the S and R inputs are used for setting (jump instructions).
 
+
+-- I/O --
+
+
 -- PATHWAYS --
 Concurrently with designing my Mk2 CPU, I would like to attempt to create my 4-bit CPU on breadboards. To do this, I will need testing equipment such as oscilloscopes and logic
 analysers. A supposed course of action is to get in touch with CSU, UTS or some other university. Ms. Rainger also suggested Core Electronics or Paktronics but I don't think they have actual chip fabs. They could have connections or sponsor equipment for me.
@@ -115,27 +119,22 @@ Mk2 CPU while beginning the hardware step of this project. Mrs. Rainger also had
 For my Mk2 CPU, I would like to make it serial - using a 1-bit ALU that I will custom make.
 
 -- PROGRAMS --
-Now that the CPU is finished (1/07/23), it's time to make some programs. The first ever one I made to test is as follows:
+Now that the CPU is finished (2/07/23), it's time to make some programs. The first ever one I made to test is as follows:
 971 100 930 b30. This repetitively adds 1+7 and outputs. (the general purpose memory was not connected at this point).
 
-Program to test memory:
-WAB 2 0 ; write 2 to reg A
-ADD 0 0 ; 2 at accum
-WRX 1 0 ; write 2 to address 1
-WAB 0 0
-ADD 0 0
-WAB 1 0 ; write 1 to reg A
-LDA 1 0 ; load 2 from mem addr 1 into reg A
-ADD 0 0
+Program 1: We are going to test a basic for loop. This is the working code.
+WAB 0 2 ; write 2 to register B
+LDA 1 0 ; load the counter variable
+NOP 0 0 ; wait for load
+ADD 0 0 ; get the sum
+WRX 1 0 ; write sum
+WAB 6 0 
+JMA 6 0 ; jump to start
 
-Program 2: Now the RAM is connected. Let's repetitively increment a number by 2. First, we want to store 2 in memory. Then, we want to load it into A, swap them, then load our current counter, then add, then write it to the counter address. Then, jump back to the start.
-WAB 2 0
-SWP 0 0
-LDA 1 0
-NOP 0 0
-ADD 0 0
-WRX 1 0
-JMA 5 0
+Machine code: 902 a10 000 100 c10 960 b60
+12-bits (3 hex digits) per instruction.
+
+This is the first, functional, fully working program! It overflows at 0xF back to the beginning! I have worked so hard to get to this position!
 
 
 
