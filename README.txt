@@ -108,7 +108,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 
 -- I/O --
-
+No I/O has been implemented yet. Plans can be implemented for this 
 
 -- PATHWAYS --
 Concurrently with designing my Mk2 CPU, I would like to attempt to create my 4-bit CPU on breadboards. To do this, I will need testing equipment such as oscilloscopes and logic
