@@ -131,8 +131,11 @@ ADD 0 0
 Program 2: Now the RAM is connected. Let's repetitively increment a number by 2. First, we want to store 2 in memory. Then, we want to load it into A, swap them, then load our current counter, then add, then write it to the counter address. Then, jump back to the start.
 WAB 2 0
 SWP 0 0
-WAB 1 0
-LDA 0 0
+LDA 1 0
+NOP 0 0
+ADD 0 0
+WRX 1 0
+JMA 5 0
 
 
 
