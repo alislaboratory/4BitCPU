@@ -24,8 +24,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	LDA 1010 (MEMOP) - Fetch address at register A and write into register A.
 	JMA 1011 - Increment/decrement the program counter by value of operand A.
 	WRX 1100 - Write contents of accumulator to memory address in operand A.
-	UDF 1101
-	UDF 1110
+	JMZ 1101 - Decrement program counter by value of operand A IF accumulator is currently 0000. 
+	HLT 1110 - Halt CPU. Stops program counter from ticking (TBD)
 	UDF 1111
 	
 
@@ -135,6 +135,8 @@ Machine code: 902 a10 000 100 c10 960 b60
 12-bits (3 hex digits) per instruction.
 
 This is the first, functional, fully working program! It overflows at 0xF back to the beginning! I have worked so hard to get to this position!
+
+Program 2: Attempting multiplication. Using SHL and ADD operations, we should be able to perform multiplication. Let's try.
 
 
 
