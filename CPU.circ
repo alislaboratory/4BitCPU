@@ -6490,6 +6490,9 @@
     <comp lib="0" loc="(120,990)" name="Pin">
       <a name="appearance" val="NewPins"/>
     </comp>
+    <comp lib="0" loc="(1930,2630)" name="Constant">
+      <a name="value" val="0x0"/>
+    </comp>
     <comp lib="0" loc="(2300,510)" name="Pin">
       <a name="appearance" val="NewPins"/>
       <a name="facing" val="west"/>
@@ -6773,7 +6776,7 @@
     <comp lib="8" loc="(1035,2860)" name="Text">
       <a name="text" val="there will be two cycles to get an instruction - fixed by halting for a cycle while value is fetched "/>
     </comp>
-    <comp lib="8" loc="(1918,2580)" name="Text">
+    <comp lib="8" loc="(1918,2602)" name="Text">
       <a name="text" val="This can go to somewhere for a CONT operation."/>
     </comp>
     <comp lib="8" loc="(925,2155)" name="Text">
@@ -6802,7 +6805,7 @@
     <wire from="(1030,480)" to="(1830,480)"/>
     <wire from="(1030,500)" to="(1820,500)"/>
     <wire from="(1030,520)" to="(1810,520)"/>
-    <wire from="(110,2960)" to="(1750,2960)"/>
+    <wire from="(110,2960)" to="(1770,2960)"/>
     <wire from="(1140,2610)" to="(1140,3010)"/>
     <wire from="(1140,2610)" to="(1180,2610)"/>
     <wire from="(1150,2600)" to="(1150,3000)"/>
@@ -6885,9 +6888,6 @@
     <wire from="(1740,1160)" to="(1780,1160)"/>
     <wire from="(1750,1170)" to="(1750,1270)"/>
     <wire from="(1750,1170)" to="(1790,1170)"/>
-    <wire from="(1750,2780)" to="(1750,2960)"/>
-    <wire from="(1750,2780)" to="(2060,2780)"/>
-    <wire from="(1750,2960)" to="(1770,2960)"/>
     <wire from="(1760,1180)" to="(1760,1260)"/>
     <wire from="(1760,1180)" to="(1800,1180)"/>
     <wire from="(1760,130)" to="(1760,680)"/>
@@ -6956,13 +6956,15 @@
     <wire from="(1910,90)" to="(1940,90)"/>
     <wire from="(1920,570)" to="(1940,570)"/>
     <wire from="(1920,70)" to="(1920,570)"/>
-    <wire from="(1930,2620)" to="(1930,2800)"/>
+    <wire from="(1930,2620)" to="(1930,2630)"/>
+    <wire from="(1930,2630)" to="(1930,2800)"/>
     <wire from="(1930,2800)" to="(2090,2800)"/>
     <wire from="(1930,550)" to="(1940,550)"/>
     <wire from="(1930,80)" to="(1930,550)"/>
     <wire from="(1940,90)" to="(1940,530)"/>
     <wire from="(2040,2700)" to="(2040,2740)"/>
     <wire from="(2040,2740)" to="(2060,2740)"/>
+    <wire from="(2060,2740)" to="(2060,2780)"/>
     <wire from="(2090,2790)" to="(2090,2800)"/>
     <wire from="(210,2530)" to="(240,2530)"/>
     <wire from="(210,960)" to="(210,2530)"/>
