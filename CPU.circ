@@ -59,7 +59,7 @@
     <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="16.0"/>
+    <a name="simulationFrequency" val="1.0"/>
     <comp lib="0" loc="(1570,610)" name="Splitter">
       <a name="facing" val="west"/>
       <a name="fanout" val="4"/>
@@ -2338,7 +2338,7 @@
       <a name="addrWidth" val="12"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 12 12
-0
+902 a10 0 100 c10 960 b60
 </a>
       <a name="dataWidth" val="12"/>
       <a name="label" val="PROGMEM"/>
@@ -2346,7 +2346,7 @@
     <comp lib="8" loc="(1905,160)" name="Text">
       <a name="text" val="might have to add the instruction register after accessing rom instead of befoire"/>
     </comp>
-    <comp lib="8" loc="(3542,724)" name="Text">
+    <comp lib="8" loc="(3540,720)" name="Text">
       <a name="text" val="JMZ jump if zero operation uses the value of the accumulator to check zero, then changes program counter as usual"/>
     </comp>
     <comp lib="8" loc="(840,1190)" name="Text">
@@ -6776,7 +6776,7 @@
     <comp lib="8" loc="(1035,2860)" name="Text">
       <a name="text" val="there will be two cycles to get an instruction - fixed by halting for a cycle while value is fetched "/>
     </comp>
-    <comp lib="8" loc="(1918,2602)" name="Text">
+    <comp lib="8" loc="(1915,2600)" name="Text">
       <a name="text" val="This can go to somewhere for a CONT operation."/>
     </comp>
     <comp lib="8" loc="(925,2155)" name="Text">
