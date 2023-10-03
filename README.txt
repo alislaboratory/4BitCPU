@@ -10,24 +10,26 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 	Control unit: for operations requiring access to external memory, 2 inner bits will be used as select lines for the 16 to 4 mux.
 
-	NOP 0000 (ALU) - idle operation. Result will always be 0000. (done)
-	ADD 0001 (ALU)(ACT) - addition operation. Results will be A+B. (done)
-	SUB 0010 (ALU)(ACT) - subtraction operation. Results will be A-B . (done)
-	SHR 0011 (ALU)(ACT) - shift A right by 1. (done)
-	SHL 0100 (ALU)(ACT) - shift A left by 1. (done)
-	UDEF 0101
-	UDEF 0110
-	UDEF 0111
+	NOP 0000 0 (ALU) - idle operation. Result will always be 0000. (done)
+	ADD 0001 1 (ALU)(ACT) - addition operation. Results will be A+B. (done)
+	SUB 0010 2 (ALU)(ACT) - subtraction operation. Results will be A-B . (done)
+	SHR 0011 3 (ALU)(ACT) - shift A right by 1. (done)
+	SHL 0100 4 (ALU)(ACT) - shift A left by 1. (done)
+	UDEF 0101 5
+	UDEF 0110 6
+	UDEF 0111 7
 	
-	SWP 1000 (MEMOP) - Swap contents of registers A and B. 
-	WAB 1001 (MEMOP) - Write operand A to register A and operand B into register B.
-	LDA 1010 (MEMOP) - Fetch address at register A and write into register A.
-	JMA 1011 - Increment/decrement the program counter by value of operand A.
-	WRX 1100 - Write contents of accumulator to memory address in operand A.
-	JMZ 1101 - Decrement program counter by value of operand A IF accumulator is currently 0000. 
-	HLT 1110 - Halt CPU. Stops program counter from ticking (TBD)
-	UDF 1111
-	
+	SWP 1000 8 (MEMOP) - Swap contents of registers A and B. 
+	WAB 1001 9 (MEMOP) - Write operand A to register A and operand B into register B.
+	LDA 1010 a (MEMOP) - Fetch address at register A and write into register A.
+	JMA 1011 b - Increment/decrement the program counter by value of operand A.
+	WRX 1100 c - Write contents of accumulator to memory address in operand A.
+	JMZ 1101 d - Decrement program counter by value of operand A IF accumulator is currently 0000. 
+	HLT 1110 e - Halt CPU. Stops program counter from ticking (TBD)
+	UDF 1111 f 
+
+	Temporary fix for small jump values: add opA + opB
+
 
 
 	There can be a capacity for future operations such as multiplication and dividing, but at the moment these are user defined. In the Mk2, there should be more capacity for complex operations, as in this computer there are only 4 bits, so multiplication and division is not necessary and using while loops with ADD and JMP is more efficient for myself.
@@ -36,6 +38,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	Note: an 'active' operation refers to an operation that requires an output. For example, ADD is an active operation, while MOV and the LD operations are active. A list of active operations is defined above. The X accumulator register and the B and C ALU flags will not be overwritten until there is a new active operation. All ALU operations are active.
 
 	30/06: Control unit rehaul. Previous instruction set found in previous versions of the document.
+
+	03/10/32: Added something for both JMP and JMZ that OpA + OpB is now the jump location, allowing up to -32 relative jumping.
 
 
 -- MEMORY --
@@ -81,6 +85,8 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	ease of circuit creation. Then reading is the same process, reading the current address bits 5-0, then adding that with current address + 1 bits 5-0. For now, it can be ignored.
 
 	There is a slight problem where loading requires 2 clock cycles to fetch the value of the address in memory. This can be fixed by using a counter that activates the program counter HALT for a single cycle while the value is fetched, then disabled the next clock cycle.
+
+	3/10/23 - A quick temporary fix has been made with the jump instruction to utilise summing operands A and B. This can also be used to make negative jumps up to size 16, and positive jumps up to 32. (my brain is absolutely gigantic, i thought of this in legit 30s cos my jump instruction wasn't relative jumping far enough hehe)
 
 
 
@@ -136,9 +142,67 @@ Machine code: 902 a10 000 100 c10 960 b60
 
 This is the first, functional, fully working program! It overflows at 0xF back to the beginning! I have worked so hard to get to this position!
 
-Program 2: Attempting multiplication. Using SHL and ADD operations, we should be able to perform multiplication. Let's try.
+Program 2: Making basic multiplication using a for loop.
+Let's do a program for e.g 3 x 2 . Best programming practice should have the lowest number second to lower the number of cycles required.
+Pseudocode:
+Load the 1st multiplicand (3) into RAM | 0x0
+Load the 2nd multiplicand (2) into RAM. | 0x1
+Reserve a RAM address for counting. | 0x2
+Reserve a RAM address for the final product. | 0x3
+Jump to the end of the program if 0x1-0x2 == 0 (JMZ)
+Add 3 to itself. -
+Store this value to the accumulator
+Increment counter
+Unconditional jump back to 146
 
+Can also halt at the end so it doesnt loop infinitely
 
+930 WAB 3 0 ; write 1st multiplicand to 0x0
+100 ADD 0 0 ;
+c00 WRX 0 0 ;
+920 WAB 2 0 ; write 2nd multiplicand to 0x1
+100 ADD 0 0 ;
+c10 WRX 1 0 ;
+910 WAB 1 0 ; write 1 to 0x4 for uhhh
+100 ADD 0 0 ;
+a20 LDA 2 0 ; checking if reached the final var
+000 NOP 0 0 ;
+800 SWP 0 0 ;
+a10 LDA 1 0 ;
+000 NOP 0 0 ;
+200 SUB 0 0 ;
+df0 JMZ e 0 ; jump to end and halt
+a00 LDA 0 0 ; add 3 to the current sum
+000 NOP 0 0 ;
+800 SWP 0 0 ;
+a30 LDA 3 0 ;
+000 NOP 0 0 ;
+100 ADD 0 0 ;
+c30 WRX 3 0 ;
+LDA 2 0 ;
+SWP 0 0 ;
+WAB 
+bf3 JMA f 3 ; jump back 18 to the beginning of the loop
+
+930 100 c00 
+
+NOP 0000 0 (ALU) - idle operation. Result will always be 0000. (done)
+	ADD 0001 1 (ALU)(ACT) - addition operation. Results will be A+B. (done)
+	SUB 0010 2 (ALU)(ACT) - subtraction operation. Results will be A-B . (done)
+	SHR 0011 3 (ALU)(ACT) - shift A right by 1. (done)
+	SHL 0100 4 (ALU)(ACT) - shift A left by 1. (done)
+	UDEF 0101 5
+	UDEF 0110 6
+	UDEF 0111 7
+	
+	SWP 1000 8 (MEMOP) - Swap contents of registers A and B. 
+	WAB 1001 9 (MEMOP) - Write operand A to register A and operand B into register B.
+	LDA 1010 a (MEMOP) - Fetch address at register A and write into register A.
+	JMA 1011 b - Increment/decrement the program counter by value of operand A.
+	WRX 1100 c - Write contents of accumulator to memory address in operand A.
+	JMZ 1101 d - Decrement program counter by value of operand A IF accumulator is currently 0000. 
+	HLT 1110 e - Halt CPU. Stops program counter from ticking (TBD)
+	UDF 1111 f 
 
 
 
@@ -150,13 +214,13 @@ Program 2: Attempting multiplication. Using SHL and ADD operations, we should be
 -- TODO --
 	- Create B subtraction borrowing.
 	- Create a bidirectional shift register
-	- Jump instructions
 	- Implement high write on new active operation.
 	- Implement active on control unit so perpetual swapping doesn't occur.
 	- Make GP and progmem memory
-	- Implement jump instructions
 	- Fix progcounter for non-rising edge clock pulse so one clock pulser per count
 	- Fix progcounter for set
+	- Create bidirectional relative jumping
+	- Implement jump instruction
 
 
 
