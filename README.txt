@@ -221,6 +221,7 @@ NOP 0000 0 (ALU) - idle operation. Result will always be 0000. (done)
 	- Fix progcounter for set
 	- Create bidirectional relative jumping
 	- Implement jump instruction
+	- Fix registers breaking for a split second 
 
 
 
