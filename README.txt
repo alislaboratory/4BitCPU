@@ -1,5 +1,9 @@
 My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
+-- INTRODUCTION --
+This is my first experience with low-level (machine code and assembly and logic gates) computing. I had only learnt logic gates a few weeks prior to beginning this project, and by then had a vested interest in creating my own bits and pieces. So I started with a 1-bit full adder. This became a 4-bit adder, which became a 4-bit subtractor, which then became an ALU, which then was added to a control unit to make a CPU... etc. Note I had nearly 0 clue about CPU architecture other than a very high-level understanding of the fetch-execute cycle and registers, ALU and control unit. I made pretty much every module myself just from the beginning logic gates, only through my own understanding and built my knowledge as I went through. I had no book, no YouTube tutorial, no course, just Logisim and a knowledge of boolean logic. The entire CPU architecture, instruction set and structure is completely my own, hence all the weird wiring patterns and naming schemes everywhere.
+
+About half-way through the project, I realised how fun it was, and how accomplishing it felt to create the components, and eventually the whole CPU. But it isn't really usable, so my next project that is currently in progress, is my Mk2 16-bit CPU, with keyboard capability, I2C, a display, audio, and more. 
 -- INSTRUCTION SET --
 	This 4-bit CPU will have a capacity of 16 instructions (4-bit opcodes). There are 2 4-bit operands. Overflow and borrowing are disregarded in operations, only in JMPC, JMPB and JMP0 .
 	The ALU will have 3-bit opcodes, so 8 comparator and arithmetic instructions. The first 8 instructions belong to the ALU to make space for new ALU functionality.
@@ -25,7 +29,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 	JMA 1011 b - Increment/decrement the program counter by value of operand A.
 	WRX 1100 c - Write contents of accumulator to memory address in operand A.
 	JMZ 1101 d - Decrement program counter by value of operand A IF accumulator is currently 0000. 
-	HLT 1110 e - Halt CPU. Stops program counter from ticking (TBD)
+	HLT 1110 e - Halt CPU. Stops program counter from counting.
 	UDF 1111 f 
 
 	Temporary fix for small jump values: add opA + opB
@@ -86,7 +90,7 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 	There is a slight problem where loading requires 2 clock cycles to fetch the value of the address in memory. This can be fixed by using a counter that activates the program counter HALT for a single cycle while the value is fetched, then disabled the next clock cycle.
 
-	3/10/23 - A quick temporary fix has been made with the jump instruction to utilise summing operands A and B. This can also be used to make negative jumps up to size 16, and positive jumps up to 32. (my brain is absolutely gigantic, i thought of this in legit 30s cos my jump instruction wasn't relative jumping far enough hehe)
+	3/10/23 - A quick temporary fix has been made with the jump instruction to utilise summing operands A and B, so now relative jumping can be up to -32.
 
 
 
@@ -114,25 +118,17 @@ My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 
 -- I/O --
-No I/O has been implemented yet. Plans can be implemented for this 
-
--- PATHWAYS --
-Concurrently with designing my Mk2 CPU, I would like to attempt to create my 4-bit CPU on breadboards. To do this, I will need testing equipment such as oscilloscopes and logic
-analysers. A supposed course of action is to get in touch with CSU, UTS or some other university. Ms. Rainger also suggested Core Electronics or Paktronics but I don't think they have actual chip fabs. They could have connections or sponsor equipment for me.
-First of all, I should get the CPU fully working. Once this is done, I will begin work on my
-Mk2 CPU while beginning the hardware step of this project. Mrs. Rainger also had an old contact who used to work for a chip fab company.
-
-For my Mk2 CPU, I would like to make it serial - using a 1-bit ALU that I will custom make.
+No I/O has been implemented yet, except for a basic hex character at the output accumulator. Plans at the moment are: dot matrix display, and a key input. However, this is unlikely as the creation of the more versatile and actually practical 16-bit CPU has begun.
 
 -- PROGRAMS --
 Now that the CPU is finished (2/07/23), it's time to make some programs. The first ever one I made to test is as follows:
 971 100 930 b30. This repetitively adds 1+7 and outputs. (the general purpose memory was not connected at this point).
 
-Program 1: We are going to test a basic for loop. This is the working code.
+Program 1: We are going to test a basic for loop which repetitively adds 0x2 in hex. This is the working code.
 WAB 0 2 ; write 2 to register B
 LDA 1 0 ; load the counter variable
 NOP 0 0 ; wait for load
-ADD 0 0 ; get the sum
+ADD 0 0 ; calculate the sum
 WRX 1 0 ; write sum
 WAB 6 0 
 JMA 6 0 ; jump to start
@@ -142,7 +138,7 @@ Machine code: 902 a10 000 100 c10 960 b60
 
 This is the first, functional, fully working program! It overflows at 0xF back to the beginning! I have worked so hard to get to this position!
 
-Program 2: Making basic multiplication using a for loop.
+Program 2: Making basic multiplication using a for loop. (work in progress)
 Let's do a program for e.g 3 x 2 . Best programming practice should have the lowest number second to lower the number of cycles required.
 Pseudocode:
 Load the 1st multiplicand (3) into RAM | 0x0
@@ -163,7 +159,7 @@ c00 WRX 0 0 ;
 920 WAB 2 0 ; write 2nd multiplicand to 0x1
 100 ADD 0 0 ;
 c10 WRX 1 0 ;
-910 WAB 1 0 ; write 1 to 0x4 for uhhh
+910 WAB 1 0 ; write 1 to 0x4
 100 ADD 0 0 ;
 a20 LDA 2 0 ; checking if reached the final var
 000 NOP 0 0 ;
@@ -183,30 +179,6 @@ LDA 2 0 ;
 SWP 0 0 ;
 WAB 
 bf3 JMA f 3 ; jump back 18 to the beginning of the loop
-
-930 100 c00 
-
-NOP 0000 0 (ALU) - idle operation. Result will always be 0000. (done)
-	ADD 0001 1 (ALU)(ACT) - addition operation. Results will be A+B. (done)
-	SUB 0010 2 (ALU)(ACT) - subtraction operation. Results will be A-B . (done)
-	SHR 0011 3 (ALU)(ACT) - shift A right by 1. (done)
-	SHL 0100 4 (ALU)(ACT) - shift A left by 1. (done)
-	UDEF 0101 5
-	UDEF 0110 6
-	UDEF 0111 7
-	
-	SWP 1000 8 (MEMOP) - Swap contents of registers A and B. 
-	WAB 1001 9 (MEMOP) - Write operand A to register A and operand B into register B.
-	LDA 1010 a (MEMOP) - Fetch address at register A and write into register A.
-	JMA 1011 b - Increment/decrement the program counter by value of operand A.
-	WRX 1100 c - Write contents of accumulator to memory address in operand A.
-	JMZ 1101 d - Decrement program counter by value of operand A IF accumulator is currently 0000. 
-	HLT 1110 e - Halt CPU. Stops program counter from ticking (TBD)
-	UDF 1111 f 
-
-
-
-	
 
 
 	
