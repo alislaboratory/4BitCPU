@@ -1,6 +1,6 @@
-# Mk1 — a 4-bit CPU built from logic gates
+# Mk1 - a 4-bit CPU built from logic gates
 
-I built this when I was 15, in Logisim, starting from a single 1-bit full adder and working my way up to a CPU that runs programs. No tutorials, no books, no reference designs — the architecture and the instruction set are entirely my own, worked out from first principles as I went. Everything below the divider is my original dev log, preserved exactly as I wrote it at the time: typos, dead ends, over-excited exclamation marks and all. It left me wanting more, so a Mk2 16-bit CPU followed.
+I built this when I was 15, in Logisim, starting from a single 1-bit full adder and working my way up to a CPU that runs programs. No tutorials, no books, and no reference designs, the architecture and the instruction set are entirely my own, worked out from first principles as I went. Everything below the divider is my original dev log, preserved exactly as I wrote it at the time: typos, dead ends, over-excited exclamation marks and all. 
 
 ## Screenshots
 
@@ -8,10 +8,9 @@ I built this when I was 15, in Logisim, starting from a single 1-bit full adder 
 
 ![The output counting up in increments of 2 and overflowing at 0xF](images/output_focus.gif)
 
-<!-- placeholders — still to add: -->
 ![The full CPU circuit, zoomed out](images/cpu-full.png)
 
-![The ALU](images/alu.png)
+![The ALU](images/alu.webp)
 
 ## Run it yourself
 
