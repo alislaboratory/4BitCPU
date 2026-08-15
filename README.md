@@ -26,11 +26,11 @@ I built this when I was 15, in Logisim, starting from a single 1-bit full adder 
 3. Start the clock (Simulate → Auto-Tick) and watch the output count up by 2 until it overflows at 0xF.
 
 ---
-2023
+
 
 My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
-## INTRODUCTION
+## INTRODUCTION (2023)
 
 This is my first experience with low-level (machine code and assembly and logic gates) computing. I had only learnt logic gates a few weeks prior to beginning this project, and by then had a vested interest in creating my own bits and pieces. So I started with a 1-bit full adder. This became a 4-bit adder, which became a 4-bit subtractor, which then became an ALU, which then was added to a control unit to make a CPU... etc. Note I had nearly 0 clue about CPU architecture other than a very high-level understanding of the fetch-execute cycle and registers, ALU and control unit. I made pretty much every module myself just from the beginning logic gates, only through my own understanding and built my knowledge as I went through. I had no book, no YouTube tutorial, no course, just Logisim and a knowledge of boolean logic. The entire CPU architecture, instruction set and structure is completely my own, hence all the weird wiring patterns and naming schemes everywhere.
 
