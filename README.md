@@ -15,15 +15,14 @@ I built this when I was 15, in Logisim, starting from a single 1-bit full adder 
 
 ## Run it yourself
 
-1. Download [Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution/releases) (`CPU.circ` was saved with v3.8.0).
-2. Open `CPU.circ`.
-3. Load the example loop program from the log into program memory (right-click it → Edit Contents):
+1. Download [Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution/releases) (`CPU.circ` was saved with v4.1.0).
+2. Open `CPU.circ`. The example loop program from the log comes already loaded in program memory:
 
    ```
    902 a10 000 100 c10 960 b60
    ```
 
-4. Start the clock (Simulate → Auto-Tick) and watch the output count up by 2 until it overflows at 0xF.
+3. Start the clock (Simulate → Auto-Tick) and watch the output count up by 2 until it overflows at 0xF.
 
 ---
 
