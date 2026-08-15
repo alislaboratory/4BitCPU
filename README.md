@@ -1,3 +1,14 @@
+## Screenshots
+
+<!-- placeholders — drop the actual files into images/ -->
+![The full CPU circuit, zoomed out](images/cpu-full.png)
+
+![The ALU](images/alu.png)
+
+![The loop program counting up and overflowing at 0xF](images/loop-overflow.gif)
+
+---
+
 My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
 ## INTRODUCTION
