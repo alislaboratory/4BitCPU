@@ -2,6 +2,8 @@
 
 I built this when I was 15, in Logisim, starting from a single 1-bit full adder and working my way up to a CPU that runs programs. No tutorials, no books, and no reference designs, the architecture and the instruction set are entirely my own, worked out from first principles as I went. Everything below the divider is my original dev log, preserved exactly as I wrote it at the time: typos, dead ends, over-excited exclamation marks and all. 
 
+### **Please note that AI was only used retroactively to make this project more presentable. The original CPU design was mine, and was created well before the advent of Codex and Claude Code.**
+
 ## Screenshots
 
 ![The whole CPU running the loop program](images/cpu_span.gif)
