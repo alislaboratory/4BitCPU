@@ -2,4 +2,5 @@ BBCPU.txt
 logisim_automation.txt
 testingexport.png
 .DS_Store
+*.autosave
 
