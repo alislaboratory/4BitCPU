@@ -7,6 +7,18 @@
 
 ![The loop program counting up and overflowing at 0xF](images/loop-overflow.gif)
 
+## Run it yourself
+
+1. Download [Logisim Evolution](https://github.com/logisim-evolution/logisim-evolution/releases) (`CPU.circ` was saved with v3.8.0).
+2. Open `CPU.circ`.
+3. Load the example loop program from the log into program memory (right-click it → Edit Contents):
+
+   ```
+   902 a10 000 100 c10 960 b60
+   ```
+
+4. Start the clock (Simulate → Auto-Tick) and watch the output count up by 2 until it overflows at 0xF.
+
 ---
 
 My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
