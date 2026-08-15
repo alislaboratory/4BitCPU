@@ -4,12 +4,14 @@ I built this when I was 15, in Logisim, starting from a single 1-bit full adder 
 
 ## Screenshots
 
-<!-- placeholders — drop the actual files into images/ -->
+![The whole CPU running the loop program](images/cpu_span.gif)
+
+![The output counting up in increments of 2 and overflowing at 0xF](images/output_focus.gif)
+
+<!-- placeholders — still to add: -->
 ![The full CPU circuit, zoomed out](images/cpu-full.png)
 
 ![The ALU](images/alu.png)
-
-![The loop program counting up and overflowing at 0xF](images/loop-overflow.gif)
 
 ## Run it yourself
 
