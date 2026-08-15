@@ -26,6 +26,7 @@ I built this when I was 15, in Logisim, starting from a single 1-bit full adder 
 3. Start the clock (Simulate → Auto-Tick) and watch the output count up by 2 until it overflows at 0xF.
 
 ---
+2023
 
 My Mk1 4-bit CPU. This is meant to be a precursor to my more complex Mk2 CPU.
 
